@@ -80,32 +80,32 @@ img {vertical-align: middle;}
 <div class="mySlides fade">
   <div class="numbertext">1 / 6</div>
   <img src="style/img_slide_1.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
+  <div class="text">Reflections</div>
 </div>
 <div class="mySlides fade">
   <div class="numbertext">2 / 6</div>
   <img src="style/img_slide_2.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
+  <div class="text">Perspective</div>
 </div>
 <div class="mySlides fade">
   <div class="numbertext">3 / 6</div>
   <img src="style/img_slide_3.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
+  <div class="text">The harbour</div>
 </div>
 <div class="mySlides fade">
   <div class="numbertext">4 / 6</div>
   <img src="style/img_slide_4.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
+  <div class="text">Frozen in Time</div>
 </div>
 <div class="mySlides fade">
   <div class="numbertext">5 / 6</div>
   <img src="style/img_slide_5.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
+  <div class="text">An evening</div>
 </div>
 <div class="mySlides fade">
   <div class="numbertext">6 / 6</div>
   <img src="style/img_slide_6.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
+  <div class="text">A Sunset</div>
 </div>
 </div>
 <br>
@@ -131,7 +131,7 @@ function showSlides() {
     }
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    setTimeout(showSlides, 4000); // Change image every 4 seconds
 }
 </script>
 <?php include_once("template_footer.php"); ?>
