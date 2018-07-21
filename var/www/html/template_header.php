@@ -9,8 +9,7 @@ body {margin:0;}
   overflow: hidden;
   background-color: #333;  
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  
 }
 
 .navbar a {
