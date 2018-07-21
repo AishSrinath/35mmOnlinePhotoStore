@@ -12,10 +12,10 @@
 $firstnameErr = $lastnameErr= $emailErr = $genderErr = $websiteErr = "";
 $firstname = $lastname= $email = $gender = $comment = $website = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
+  if (empty($_POST["firstname"])) {
     $firstnameErr = "Name is required";
   } else {
-    $firstname = test_input($_POST["name"]);
+    $firstname = test_input($_POST["firstname"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) {
       $firstnameErr = "Only letters and white space allowed"; 
@@ -59,7 +59,7 @@ function test_input($data) {
 <h2>New user registration</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  First Name: <input type="text" name="name" value="<?php echo $firstname;?>">
+  First Name: <input type="text" name="firstname" value="<?php echo $firstname;?>">
   <span class="error">* <?php echo $firstnameErr;?></span>
   <br><br>
   Last Name: <input type="text" name="lastname" value="<?php echo $lastname;?>">
