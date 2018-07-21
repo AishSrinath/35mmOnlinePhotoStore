@@ -75,61 +75,48 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-
-<h2>Automatic Slideshow</h2>
-<p>Change image every 2 seconds:</p>
-
+<?php include_once("template_header.php"); ?>
 <div class="slideshow-container">
-
 <div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
+  <div class="numbertext">1 / 6</div>
   <img src="style/img_slide_1.jpg" style="width:100%">
   <div class="text">Caption Text</div>
 </div>
-
 <div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
+  <div class="numbertext">2 / 6</div>
   <img src="style/img_slide_2.jpg" style="width:100%">
   <div class="text">Caption Two</div>
 </div>
-
 <div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
+  <div class="numbertext">3 / 6</div>
   <img src="style/img_slide_3.jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
-
 <div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
+  <div class="numbertext">4 / 6</div>
   <img src="style/img_slide_4.jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
-
 <div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
+  <div class="numbertext">5 / 6</div>
   <img src="style/img_slide_5.jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
-
 <div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
+  <div class="numbertext">6 / 6</div>
   <img src="style/img_slide_6.jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
-
 </div>
 <br>
-
 <div style="text-align:center">
   <span class="dot"></span> 
   <span class="dot"></span> 
   <span class="dot"></span> 
 </div>
-
 <script>
 var slideIndex = 0;
 showSlides();
-
 function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
@@ -147,6 +134,6 @@ function showSlides() {
     setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 </script>
-
+<?php include_once("template_footer.php"); ?>
 </body>
 </html> 
