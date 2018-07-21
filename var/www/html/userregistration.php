@@ -5,7 +5,7 @@
 .error {color: #FF0000;}
 </style>
 </head>
-<body>  
+<body style="background-color:rgb(180, 180, 180);">  
 
 <?php
 // define variables and set to empty values
