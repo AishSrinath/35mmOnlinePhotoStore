@@ -10,7 +10,7 @@
 <div align="center" id="mainWrapper">
 	<?php include_once("template_header.php"); ?>
 	<div id="pageContent">
-   	<img src='style/background.jpg'>
+            <img src='style/img_slide_1.jpg'>
 	</div>
   	<?php include_once("template_footer.php"); ?>
 </div>
