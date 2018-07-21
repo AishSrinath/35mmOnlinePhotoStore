@@ -62,7 +62,7 @@ body {margin:0;}
 <body>
 
 <div class="navbar" id="myNavbar">
-  <a href="#home" class="active">Home</a>
+
   <div id="pageHeader"><table width="100%" border="0" cellspacing="0" cellpadding="12">
   <tbody>
     <tr>
