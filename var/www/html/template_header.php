@@ -5,7 +5,7 @@
       <td width="86%">For the artist in you <img src="style/smiley.jpg" width= "20" height="20" alt="smiley"/></td>
       </tr>
     <tr>
-        <td bgcolor="#000000" colspan="2"><a href="index.php">Home</a> <a href="intro.php">About us</a> <a href="marketplace.php">Discover</a> <a href="userregistration.php">My Account</a>
+        <td bgcolor="#000000" colspan="2"><a href="index.php">Home</a> <a href="aboutus.php">About us</a> <a href="marketplace.php">Discover</a> <a href="userregistration.php">My Account</a>
       <a href="buy.php">Buy</a>
       </td>
       </tr>
