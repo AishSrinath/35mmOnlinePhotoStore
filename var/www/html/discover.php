@@ -1,10 +1,5 @@
 <?php
-function Getimagedetail($category) {
-require "storescripts/connect_to_mysql.php";
-$query = "SELECT `image_name` FROM `image` WHERE `image_category`='$category'";
-$result = mysqli_query($db_connect, $query);
-return $result;
-}
+require 'functions.php';
 ?>
 <!doctype html>
 <html>
