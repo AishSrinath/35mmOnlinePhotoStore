@@ -56,7 +56,7 @@ require 'functions.php';
 <div align="center" id="mainWrapper">
     <?php include_once("template_header.php");?>
     <div class="tab">
-    <button class="tablinks" onclick="openCat(event, 'Landscape')">Landscape</button>
+    <button class="tablinks" onclick="openCat(event, 'Landscape')" id="defaultOpen">Landscape</button>
     <button class="tablinks" onclick="openCat(event, 'Macro')">Macro</button>
     <button class="tablinks" onclick="openCat(event, 'Street')">Street</button>
     </div>
@@ -131,6 +131,7 @@ function openCat(evt, catName) {
     document.getElementById(catName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+document.getElementById("defaultOpen").click();
 </script>
     <?php include_once("template_footer.php"); ?>
 </div>
