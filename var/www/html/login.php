@@ -19,15 +19,15 @@ if(isset($_REQUEST['Exit']) &&  $_REQUEST['Exit']=="exp")
 if (isset($_POST['login']))
 {
 	$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
-	$user_name=strip_tags($conn,mysqli_real_escape_string(trim($_POST['username'])));
-	$pwd=strip_tags($conn,mysqli_real_escape_string(trim(md5($_POST['password']))));
+	$user_name=strip_tags(mysqli_real_escape_string($conn,trim($_POST['username'])));
+	$pwd=strip_tags(mysqli_real_escape_string($conn,trim(md5($_POST['password']))));
 	$sql_query = "SELECT `id`, `user_role`, `username`, `password` FROM `user` WHERE username='$user_name' AND password='$pwd'";
 	$sql = mysqli_query($conn, $sql_query);
 	if (mysqli_num_rows($sql)>0)
 	{
 		$row_login=mysqli_fetch_assoc($sql);
-		$_SESSION['login_username']=$row_login['login_username'];
-		$_SESSION['login_id']=$row_login['login_id'];
+		$_SESSION['user_name']=$row_login['user_name'];
+		$_SESSION['id']=$row_login['id'];
                 if($row_login['user_role']==0){
 		header('location:buyer_registration.php');
                 }
