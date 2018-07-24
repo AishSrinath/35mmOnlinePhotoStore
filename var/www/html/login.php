@@ -23,9 +23,9 @@ if (isset($_POST['login']))
 	$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
 	$sql_query = "SELECT `id`, `user_role`, `username`, `password` FROM `user` WHERE username='$user_name' AND password='$pwd'";
 	$sql = mysqli_query($conn, $sql_query);
-	if (mysql_num_rows($sql)>0)
+	if (mysqli_num_rows($sql)>0)
 	{
-		$row_login=mysql_fetch_assoc($sql);
+		$row_login=mysqli_fetch_assoc($sql);
 		$_SESSION['login_username']=$row_login['login_username'];
 		$_SESSION['login_id']=$row_login['login_id'];
                 if($row_login['user_role']==0){
