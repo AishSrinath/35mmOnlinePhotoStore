@@ -18,7 +18,7 @@ mysqli_close($db_connect);
 };
 function get_user($user_role,$username,$password) {
 require 'storescripts/connect_to_mysql.php';
-$sql_query = "select id,user_role,username from user where username='$user_name' and password='$password'";
+$sql_query = "select id,user_role,username from user where username='$username' and password='$password'";
 $result = mysqli_query($db_connect, $sql_query);
 return $result;
 mysqli_close($db_connect);
