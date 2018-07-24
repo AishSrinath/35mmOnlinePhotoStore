@@ -1,15 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "builder";
-$password = "builder";
-$dbname = "php_webstore";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require "storescripts/connect_to_mysql.php";
+$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
 
 $sql = "SELECT id, firstname, lastname FROM user";
 $result = mysqli_query($conn, $sql);

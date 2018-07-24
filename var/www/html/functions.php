@@ -18,12 +18,5 @@ if (mysqli_query($db_connect, $sql)) {
 mysqli_close($db_connect);
 };
 
-function get_user($user_role,$username,$password) {
-require 'storescripts/connect_to_mysql.php';
-$sql_query = "SELECT `id`, `user_role`, `username`, `password` FROM `user` WHERE username=$username AND password=$password";
-$result = mysqli_query($db_connect, $sql_query);
-return $result;
-mysqli_close($db_connect);
-};
 ?>
 

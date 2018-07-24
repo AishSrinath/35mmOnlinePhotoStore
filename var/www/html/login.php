@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+require "storescripts/connect_to_mysql.php";
 ob_start();
 $msg="";
 //session_start();
@@ -20,7 +20,9 @@ if (isset($_POST['login']))
 {
 	$user_name=strip_tags(mysql_real_escape_string(trim($_POST['username'])));
 	$pwd=strip_tags(mysql_real_escape_string(trim(md5($_POST['password']))));
-	$sql = get_user('$user_role','$login_username','$pwd');
+	$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
+	$sql_query = "SELECT `id`, `user_role`, `username`, `password` FROM `user` WHERE username='$user_name' AND password='$pwd'";
+	$sql = mysqli_query($conn, $sql_query);
 	if (mysql_num_rows($sql)>0)
 	{
 		$row_login=mysql_fetch_assoc($sql);
