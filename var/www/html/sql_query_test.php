@@ -1,13 +1,27 @@
 <?php
-require 'functions.php';
-$sql = get_user('1','aditi','password');
-echo $sql;
-if (mysqli_num_rows($sql) > 0) {
-    while($row = mysqli_fetch_assoc($sql)) {
-        echo "id: " . $row["id"]. " - Name: " . $row["username"]. " " . $row["password"]. "<br>";
+$servername = "localhost";
+$username = "builder";
+$password = "builder";
+$dbname = "php_webstore";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT id, firstname, lastname FROM user";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
     }
 } else {
     echo "0 results";
 }
-?>
 
+mysqli_close($conn);
+?>
