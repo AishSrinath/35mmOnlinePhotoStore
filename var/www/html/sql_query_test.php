@@ -1,5 +1,13 @@
 <?php
 require 'functions.php';
-inser_user('1','aditi','password','Aditi','Srinath','aditi@gmail.com')
+$sql = get_user('1','aditi','password');
+
+if (mysqli_num_rows($sql) > 0) {
+    while($row = mysqli_fetch_assoc($sql)) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
 ?>
 
