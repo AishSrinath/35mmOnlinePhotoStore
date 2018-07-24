@@ -74,8 +74,8 @@ if (isset($_POST['reg_user']))
  	//echo $password_1;
 	// exit();
  	$user_role=  mysql_real_escape_string($conn,$_REQUEST['user_role']);
-	$sql_query = "INSERT INTO `user`(`user_role`, `username`, `password`, `firstname`, `lastname`, `email`) VALUES ('$user_role','$user_name','$firstname','$lastname','$email')";
-	mysqli_query($conn, $sql_query);
+	require "functions.php";
+	inser_user($user_role,$user_name,$password,$firstname,$lastname,$email);
  	header('location:login.php');
 	}
 ?>
