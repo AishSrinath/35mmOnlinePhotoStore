@@ -18,8 +18,8 @@ if(isset($_REQUEST['Exit']) &&  $_REQUEST['Exit']=="exp")
 //	$msg="Please login with your Username and Password.";
 if (isset($_POST['login']))
 {
-	$user_name=strip_tags(mysql_real_escape_string(trim($_POST['username'])));
-	$pwd=strip_tags(mysql_real_escape_string(trim(md5($_POST['password']))));
+	$user_name=strip_tags(mysqli_real_escape_string(trim($_POST['username'])));
+	$pwd=strip_tags(mysqli_real_escape_string(trim(md5($_POST['password']))));
 	$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
 	$sql_query = "SELECT `id`, `user_role`, `username`, `password` FROM `user` WHERE username='$user_name' AND password='$pwd'";
 	$sql = mysqli_query($conn, $sql_query);
