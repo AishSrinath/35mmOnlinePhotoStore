@@ -20,7 +20,7 @@ if (isset($_POST['login']))
 {
 	$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
 	$user_name=strip_tags(mysqli_real_escape_string($conn,trim($_POST['username'])));
-	$pwd=strip_tags(mysqli_real_escape_string($conn,trim($_POST['password'])));
+	$pwd=strip_tags(mysqli_real_escape_string($conn,trim(md5($_POST['password']))));
 	$sql_query = "SELECT `id`, `user_role`, `username`, `password` FROM `user` WHERE username='$user_name' AND password='$pwd'";
 	$sql = mysqli_query($conn, $sql_query);
 	if (mysqli_num_rows($sql)>0)
