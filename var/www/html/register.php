@@ -59,30 +59,45 @@ form, .content {
 <body>
 <div align="center" id="mainWrapper">
 <?php 
-include_once ("includes/connect_to_mysql.php");
+include_once ("storescripts/connect_to_mysql.php");
 include_once("template_header.php"); ?>
 
 <?php 
+$msg = $_REQUEST['msg'];
 if (isset($_POST['reg_user']))
-	{
-	$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
- 	$user_name=mysql_real_escape_string($conn,$_REQUEST['username']);
- 	$firstname=mysql_real_escape_string($conn,$_REQUEST['firstname']);
- 	$lastname=mysql_real_escape_string($conn,$_REQUEST['lastname']);
- 	$email=mysql_real_escape_string($conn,$_REQUEST['email']);
- 	$password_1=  mysql_real_escape_string($conn,$_REQUEST['password_1']);
- 	//echo $password_1;
-	// exit();
- 	$user_role=  mysql_real_escape_string($conn,$_REQUEST['user_role']);
-	require "functions.php";
-	inser_user($user_role,$user_name,$password,$firstname,$lastname,$email);
- 	header('location:login.php');
-	}
+{
+$user_name=  mysqli_real_escape_string($db_connect,$_REQUEST['username']);
+ $firstname=  mysqli_real_escape_string($db_connect,$_REQUEST['firstname']);
+ $lastname=  mysqli_real_escape_string($db_connect,$_REQUEST['lastname']);
+ $email=  mysqli_real_escape_string($db_connect,$_REQUEST['email']);
+ $password_1=  mysqli_real_escape_string($db_connect,md5($_REQUEST['password_1']));
+ //echo $password_1;
+// exit();
+ $user_role=  mysqli_real_escape_string($db_connect,$_REQUEST['user_role']);
+ 
+ $sqlchk = "SELECT username FROM user WHERE username='$user_name'";
+ mysqli_query($db_connect,$sqlchk) or die("error");
+
+if(mysqli_affected_rows($db_connect)) 
+{
+   header('location:register.php?msg=1');   
+}
+ else {
+   $sql= "insert into user(username,password,firstname,lastname,email,user_role) values('$user_name','$password_1','$firstname','$lastname','$email','$user_role')";
+
+ mysqli_query($db_connect,$sql) or die("error");
+
+ header('location:login.php'); 
+}
+
+}
 ?>
 
   <form method="post" action="register.php">
   	<?php include('errors.php'); ?>
-  	
+      <?php if(!empty($msg)) {?>
+      <span style="color:red"><?php echo "Username Already exist please choose another one";?></span>
+      <?php }?>
         <div class="input-group">
   	  <label>First Name</label>
           <input type="text" name="firstname" value="<?php echo $firstname; ?>" required="">
