@@ -1,4 +1,7 @@
 <?php
+ob_start();
+session_start();
+include_once ("storescripts/connect_to_mysql.php");
 require 'functions.php';
 ?>
 <!doctype html>
@@ -56,67 +59,69 @@ require 'functions.php';
 <div align="center" id="mainWrapper">
     <?php include_once("template_header.php");?>
     <div class="tab">
-    <button class="tablinks" onclick="openCat(event, 'Landscape')" id="defaultOpen">Landscape</button>
-    <button class="tablinks" onclick="openCat(event, 'Macro')">Macro</button>
-    <button class="tablinks" onclick="openCat(event, 'Street')">Street</button>
+                      <?php
+$sqlcat = "SELECT * FROM category ";
+ $res= mysqli_query($db_connect,$sqlcat) or die("error");
+          if(mysqli_affected_rows($db_connect)) 
+{ 
+              
+              while($row = mysqli_fetch_assoc($res))
+              {
+                  
+              $cat_name=    $row['name'];
+  ?>
+    <button class="tablinks" onclick="openCat(event, '<?php echo $cat_name;?>')"><?php echo $cat_name;?></button>
+    <?php } }?>
     </div>
-    <div id="Landscape" class="tabcontent">
+                         <?php
+$sqlcat = "SELECT * FROM category ";
+ $res= mysqli_query($db_connect,$sqlcat) or die("error");
+          if(mysqli_affected_rows($db_connect))
+          {              
+              while($rowproduct = mysqli_fetch_assoc($res))
+              {                  
+              $cat_name=    $rowproduct['name'];
+               $cat_id=    $rowproduct['id'];
+              
+              
+  ?> 
+    
+    <div id="<?php echo $cat_name;?>" class="tabcontent">
+        <form name="productform" method="post" onsub	mit="" action="addcart.php"> 
     <table>
+        
     <?php
     $i=0;
-    $category = landscape;
-    $result = Getimagedetail($category);
-    while($row = mysqli_fetch_assoc($result)) {
+    $product = "SELECT * FROM products where category='$cat_id'";
+    $result_product = mysqli_query($db_connect,$product);
+    while($row = mysqli_fetch_assoc($result_product)) {
         if($i%3 == 0) {
             echo "<tr>";
         }
-        echo"<td><img src='images/landscape/{$row['image_name']}.jpg' alt={$row['image_title']} class='responsive' width='600' height='400'</td>";
+          echo"<td><img src='{$row['image_small']}' alt={$row['image_title']} class='responsive' width='600' height='400'<br>Product Name:{$row['product_name']}<br>Small Resolution Price:{$row['price_small']}<br>High Resolution Price:{$row['price']} <br>select product type: <select name='image_type'><option value='large'>Large</option><option value='small'>Small</option></select><br><button type='submit' name='buy'>Buy Now</button> </td>";
         if($i%3 == 2) {
             echo "</tr>";
         }
-        $i++;
-    }
+        $i++; 
+        
+        ?>
+        <input type="hidden" name="pname" value="<?php echo $row['product_name'] ?>" />
+        <input type="hidden" name="pid" value="<?php echo $row['id'] ?>" />
+        <input type="hidden" name="price_large" value="<?php echo $row['price'] ?>" />
+        <input type="hidden" name="price_small" value="<?php echo $row['price_small'] ?>" />
+        <input type="hidden" name="category" value="<?php echo $row['category'] ?>" />
+        <input type="hidden" name="pqty" value="1" />
+        
+   <?php }
     ?>
+        
+        
     </table>
+      </form>           
+
     </div>
-    <div id="Macro" class="tabcontent">
-    <table>
-    <?php
-    $i=0;
-    $category = macro;
-    $result = Getimagedetail($category);
-    while($row = mysqli_fetch_assoc($result)) {
-        if($i%3 == 0) {
-            echo "<tr>";
-        }
-        echo"<td><img src='images/macro/{$row['image_name']}.jpg' alt={$row['image_title']} class='responsive' width='600' height='400'</td>";
-        if($i%3 == 2) {
-            echo "</tr>";
-        }
-        $i++;
-    }
-    ?>
-    </table>
-    </div>
-    <div id="Street" class="tabcontent">
-    <table>
-    <?php
-    $i=0;
-    $category = street;
-    $result = Getimagedetail($category);
-    while($row = mysqli_fetch_assoc($result)) {
-        if($i%3 == 0) {
-            echo "<tr>";
-        }
-        echo"<td><img src='images/street/{$row['image_name']}.jpg' alt={$row['image_title']} class='responsive' width='600' height='400'</td>";
-        if($i%3 == 2) {
-            echo "</tr>";
-        }
-        $i++;
-    }
-    ?>
-    </table>
-    </div>
+        <?php } }?>
+    
 <script>
 function openCat(evt, catName) {
     var i, tabcontent, tablinks;
@@ -131,7 +136,6 @@ function openCat(evt, catName) {
     document.getElementById(catName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen").click();
 </script>
     <?php include_once("template_footer.php"); ?>
 </div>
