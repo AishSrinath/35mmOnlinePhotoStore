@@ -1,11 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Store Home Page</title>
-<link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
-</head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.mySlides {display:none;}
+</style>
 <style>
 body {
   font-family: Arial;
@@ -103,14 +101,12 @@ img {
   opacity: 1;
 }
 </style>
-<body>
-<div align="center" id="mainWrapper">
-	<?php include_once("template_header.php"); ?>
-</div>
+<body
+
 <div class="container">
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
-    <img src="style/img_slide_1.jpg" style="width:100%">
+    <img src="style/img_slide_1.jpg" style="width:100%;">
   </div>
 
   <div class="mySlides">
@@ -137,68 +133,24 @@ img {
     <div class="numbertext">6 / 6</div>
     <img src="style/img_slide_6.jpg" style="width:100%">
   </div>
-    
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-
-  <div class="caption-container">
-    <p id="caption"></p>
-  </div>
-
-  <div class="row">
-    <div class="column">
-      <img class="demo cursor" src="style/img_slide_1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="style/img_slide_2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="style/img_slide_3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="style/img_slide_4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="style/img_slide_5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
-    </div>    
-    <div class="column">
-      <img class="demo cursor" src="style/img_slide_6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
-    </div>
-  </div>
 </div>
 
 <script>
-var slideIndex = 1;
-showSlides(slideIndex);
+var slideIndex = 0;
+carousel();
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 2000); 
 }
 </script>
-<div>	
-  <?php include_once("template_footer.php"); ?>
-</div>
+    
 </body>
 </html>
