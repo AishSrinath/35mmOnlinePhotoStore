@@ -102,6 +102,9 @@ img {
 }
 </style>
 <body
+<div align="center" id="mainWrapper">
+	<?php include_once("template_header.php"); ?>
+</div>
 
 <div class="container">
   <div class="mySlides">
@@ -151,6 +154,9 @@ function carousel() {
     setTimeout(carousel, 2000); 
 }
 </script>
-    
+ <div>	
+  <?php include_once("template_footer.php"); ?>
+</div>
+   
 </body>
 </html>
