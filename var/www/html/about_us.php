@@ -5,12 +5,9 @@
 <title>About Us</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
 </head>
-<body>
+<body style="background-image:url('style/background.jpg')">
 <div align="center" id="mainWrapper">
 	<?php include_once("template_header.php"); ?>
-    <div id="pageContent">
-   	<img src='style/background.jpg'>
-	</div>
     <h1>About Us</h1>
 <p>Welcome to 35mm Online Photostore, your number one source for online photo shopping. We're dedicated to giving you the very best of photographs taken by professionals under various categories, with a focus on dependability, customer service and uniqueness.</p>
 
