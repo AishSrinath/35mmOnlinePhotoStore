@@ -1,23 +1,6 @@
 <?php 
 ob_start();
-session_start();
-//echo $_SESSION['login_id'];
-//exit;
-if (!(isset($login) && $login == true)) {
-    if (!isset($_SESSION['login_id']) || (isset($_SESSION['login_id']) && strlen($_SESSION['login_id']) <= 0)) {
-      
-        header("Location: login.php");
-    }
-    if (isset($_SESSION['EXPIRES']) && strlen($_SESSION['EXPIRES']) > 0 && $_SESSION['EXPIRES'] < time()) {
-        $_SESSION['login_username'] = "";
-        $_SESSION['login_id'] = "";
-        $_SESSION['EXPIRES'] = "";
-        
-       header("Location:login.php?Exit=exp");
-        exit;
-    }
-}
-$_SESSION['EXPIRES'] = time() + 900; // 150 seconds (2.5 mins) 
+session_start(); 
 ?>
 <!doctype html>
 <html>
