@@ -9,7 +9,7 @@ session_start();
 <title>About Us</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
 </head>
-<body background="images/landscape/LS_1.jpg" size="cover">
+<body>
 <div align="center" id="mainWrapper">
       <?php 
     if(strlen($_SESSION['login_id']) <= 0)
@@ -32,7 +32,7 @@ session_start();
     
         
     ?>
-	
+<img src="images/landscape/LS_1.jpg" alt="landscape" style = "width: 75%">	
     <h1>About Us</h1>
 <p>Welcome to 35mm Online Photostore, your number one source for online photo shopping. We're dedicated to giving you the very best of photographs taken by professionals under various categories, with a focus on dependability, customer service and uniqueness.</p>
 
