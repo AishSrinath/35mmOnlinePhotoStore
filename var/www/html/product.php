@@ -155,10 +155,14 @@ if(mysqli_affected_rows($db_connect))
             <td><?php echo "<img src='{$row['image']}' alt={$row['product_name']} class='responsive' width='100' height='100'/>";?></td>
             <td><?php echo $row['date_added'];?></td>
             <td>
-                                                                    <a  href="delete_product.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure?')" style="color: red;"> 
+                                                                 <!--   <a  href="delete_product.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure?')" style="color: red;"> 
 										 
 										Delete
-									</a>
+									</a>-->
+                  <a  href="delete_product.php" onclick="return confirm('Are you sure?')" style="color: red;"> 
+										 
+										Delete
+                  </a>
 								</td>
          </tr>
          
