@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,30 +11,24 @@ body {
   font-family: Arial;
   margin: 0;
 }
-
 * {
   box-sizing: border-box;
 }
-
 img {
   vertical-align: middle;
 }
-
 /* Position the image container (needed to position the left and right arrows) */
 .container {
   position: relative;
 }
-
 /* Hide the images by default */
 .mySlides {
   display: none;
 }
-
 /* Add a pointer when hovering over the thumbnail images */
 .cursor {
   cursor: pointer;
 }
-
 /* Next & previous buttons */
 .prev,
 .next {
@@ -52,19 +45,16 @@ img {
   user-select: none;
   -webkit-user-select: none;
 }
-
 /* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 /* Number text (1/3 etc) */
 .numbertext {
   color: #f2f2f2;
@@ -73,7 +63,6 @@ img {
   position: absolute;
   top: 0;
 }
-
 /* Container for image text */
 .caption-container {
   text-align: center;
@@ -81,24 +70,20 @@ img {
   padding: 2px 16px;
   color: white;
 }
-
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Six columns side by side */
 .column {
   float: left;
   width: 16.66%;
 }
-
 /* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
 }
-
 .active,
 .demo:hover {
   opacity: 1;
@@ -107,9 +92,21 @@ img {
 
 <body>
 <div align="center" id="mainWrapper">
-    <a href="template_header.php"></a>
+     <?php 
+    if(strlen($_SESSION['login_id']) <= 0)
+    {
+      
+        include_once("template_header.php");
+        }
+        else{
+           
+        echo $_SESSION['login_id'];
+    include_once("postlogin_header.php");
+        }
+    ?>
+	
             
-         
+          //  <?php include_once("template_header.php"); ?>
             
             
 </div>
@@ -148,7 +145,6 @@ img {
 <script>
 var slideIndex = 0;
 carousel();
-
 function carousel() {
     var i;
     var x = document.getElementsByClassName("mySlides");
