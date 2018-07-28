@@ -24,24 +24,27 @@ $_SESSION['EXPIRES'] = time() + 900; // 150 seconds (2.5 mins)
 <html>
 <head>
 <style>
+form, .content {
+  width: 60%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: black;
+  border-radius: 0px 0px 10px 10px;
+}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    background-color:black;
 }
 
-form, .content {
-  width: 30%;
-  margin: 0px auto;
-  padding: 20px;
-  border: 1px solid #B0C4DE;
-  background: white;
-  border-radius: 0px 0px 10px 10px;
-}
+
 .input-group {
   margin: 10px 0px 10px 0px;
 }
 .input-group label {
+color: red;
   display: block;
   text-align: left;
   margin: 3px;
