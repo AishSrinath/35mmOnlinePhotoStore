@@ -23,6 +23,12 @@ $_SESSION['EXPIRES'] = time() + 900; // 150 seconds (2.5 mins)
 <!doctype html>
 <html>
 <head>
+<style>
+p {
+    border: 1px solid powderblue;
+    margin: 50px;
+}
+</style>
 <meta charset="UTF-8">
 <title>Product</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
@@ -221,33 +227,37 @@ $sqlcat = "SELECT * FROM category ";
           </select>
   	</div>
       
-        <div class="input-group">
+       <p> <div class="input-group">
   	  <label>Product Name</label>
           <input type="text" name="product_name" value="" >
-  	</div>
+  	</div> 
+    </p>
+    
         <div class="input-group">
   	  <label>Description</label>
           <textarea name="details" rows="4" cols="50">
 </textarea> 
+
   	</div>
-  	
+  	<p>
       <div class="input-group">
-  	  <label> Large Photo</label>
+  	  <label> Upload from PC</label>
           <input type="file" name="image_large" id="image" />
   	</div>
-      
+      </p>
       <div class="input-group">
-  	  <label>Price Large Photo</label>
+  	  <label>Price in EUR</label>
           <input type="text" name="price" value="" required="">
   	</div>
   	
 
-    
+    <p>
   	<div class="input-group">
-  	  <button type="submit" class="btn" name="reg_product">Add Product</button>
-  	</div>
+  	  <button style="background-color:Tomato;" type="submit" class="btn" name="reg_product">Add for sale</button>
+  	</div></p>
   </form>
   	</div>    
 <?php include_once("template_footer.php"); ?>
 </body>
 </html>
+
