@@ -24,10 +24,30 @@ $_SESSION['EXPIRES'] = time() + 900; // 150 seconds (2.5 mins)
 <html>
 <head>
 <style>
-p {
-    border: 1px solid powderblue;
-    margin: 50px;
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color:hsla(9, 100%, 64%, 0.5);
+}
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: #5F9EA0;
+  border: none;
+  border-radius: 5px;
+}
+</style>
 </style>
 <meta charset="UTF-8">
 <title>Product</title>
@@ -208,6 +228,8 @@ $msg= $_REQUEST['msg'];
 <?php if(!empty($msg)) {?>
 <span style="color:red"><?php echo "Product added successfully!";?></span>
 <?php }?>
+<table>
+<tr><td>
       <div class="input-group">
   	  <label>Select Category</label>
           <select name="category">
@@ -225,35 +247,36 @@ $sqlcat = "SELECT * FROM category ";
                
               <?php } }?>
           </select>
-  	</div>
-      
-       <p> <div class="input-group">
+  	</div></td></tr>
+      <tr><td>
+        <div class="input-group">
   	  <label>Product Name</label>
           <input type="text" name="product_name" value="" >
   	</div> 
-    </p>
-    
+    </td></tr>
+    <tr><td>
         <div class="input-group">
   	  <label>Description</label>
           <textarea name="details" rows="4" cols="50">
 </textarea> 
 
-  	</div>
-  	<p>
+  	</div> </td></tr>
+    <tr><td>
+  	
       <div class="input-group">
   	  <label> Upload from PC</label>
           <input type="file" name="image_large" id="image" />
-  	</div>
-      </p>
+  	</div></td></tr>
+      <tr><td>
       <div class="input-group">
   	  <label>Price in EUR</label>
           <input type="text" name="price" value="" required="">
-  	</div>
-  	
+  	</div></td></tr>
+  	</table>
 
     <p>
   	<div class="input-group">
-  	  <button style="background-color:Tomato;" type="submit" class="btn" name="reg_product">Add for sale</button>
+  	  <button class="btn"  type="submit" class="btn" name="reg_product">Add for sale</button>
   	</div></p>
   </form>
   	</div>    
