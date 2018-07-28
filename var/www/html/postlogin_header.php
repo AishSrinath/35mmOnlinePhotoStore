@@ -22,6 +22,10 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
   <a href="product.php">Product</a>
   <a href="addproduct.php">Add Product</a>
   </div> 
+<div style="float: right;">
+  <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
+  <a href="logout.php">Logout</a>
+  </div>
   <?php 
   if(isset($_SESSION["user_role"]))
   {
@@ -29,10 +33,7 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
           <!--<a href="addproduct.php">Add Product</a>
           <a href="product.php">Product</a>-->
  
-  <div style="float: right;">
-  <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
-  <a href="logout.php">Logout</a>
-  </div>
+  
       <?php } ?>
        <?php if($_SESSION["user_role"]==2){ ?>
           <a href="add_category.php">Add Category</a>
