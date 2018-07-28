@@ -1,7 +1,7 @@
 <?php 
 ob_start();
 session_start();
-session_start();
+//session_start();
 //echo $_SESSION['login_id'];
 //exit;
 if (!(isset($login) && $login == true)) {

@@ -163,7 +163,7 @@ return true;
 <div align="center" id="mainWrapper">
 <?php 
 
-include_once ("postlogin_header.php");
+//include_once ("postlogin_header.php");
 ?>
 
 
