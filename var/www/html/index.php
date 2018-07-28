@@ -104,9 +104,15 @@ img {
         include_once("template_header.php");
         }
         else{
-           
-       
-    include_once("postlogin_header.php");
+           if($_SESSION['user_role']==0)
+               {
+              include_once("storescripts/header.php"); 
+           }
+             else{
+            
+           include_once("postlogin_header.php");
+             }
+    
         }
     ?>
             
