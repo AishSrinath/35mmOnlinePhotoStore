@@ -26,8 +26,8 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
   if(isset($_SESSION["user_role"]))
   {
   if($_SESSION["user_role"]==1){ ?>
-          <a href="addproduct.php">Add Product</a>
-          <a href="product.php">Product</a>
+          <!--<a href="addproduct.php">Add Product</a>
+          <a href="product.php">Product</a>-->
  
   <div style="float: right;">
   <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
