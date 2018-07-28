@@ -150,6 +150,7 @@ $image_largeFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     $check = getimagesize($_FILES["image_large"]["tmp_name"]);
     if($check !== false) {
+        echo "I am in file size check.";
       // echo "File is an image - " . $check["mime"] . ".";
         $uploadOk1 = 1;
     } else {
@@ -188,7 +189,7 @@ $image_large = $target_file;
 
 // for small image
 
-$target_file1 = $target_dir .mt_rand(100000, 999999).basename($_FILES["image_small"]["name"]);
+//$target_file1 = $target_dir .mt_rand(100000, 999999).basename($_FILES["image_small"]["name"]);
 
 
 $uploadOk = 1;
@@ -286,7 +287,7 @@ $sqlcat = "SELECT * FROM category ";
   	  <label>Price Large Photo</label>
           <input type="text" name="price" value="" required="">
   	</div>
-  	<div class="input-group">
+  	<!--<div class="input-group">
   	  <label>Small Photo</label>
          <input type="file" name="image_small" id="image_small" />
   	</div>
@@ -294,7 +295,7 @@ $sqlcat = "SELECT * FROM category ";
       <div class="input-group">
   	  <label>Price Small Photo</label>
           <input type="text" name="price_small" value="" >
-  	</div>
+  	</div>-->
 
     
   	<div class="input-group">
