@@ -105,7 +105,7 @@ img {
         }
         else{
            
-        echo $_SESSION['login_id'];
+       
     include_once("postlogin_header.php");
         }
     ?>

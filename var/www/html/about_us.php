@@ -19,7 +19,7 @@ session_start();
         }
         else{
            
-        echo $_SESSION['login_id'];
+        
     include_once("postlogin_header.php");
         }
     ?>
