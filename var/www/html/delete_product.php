@@ -11,7 +11,7 @@
 include_once ("template_header.php");
 ?>
 
-<? 
+<?php
  ob_start();
  include_once('storescripts/connect_to_mysql.php');
  echo "outside the if";
