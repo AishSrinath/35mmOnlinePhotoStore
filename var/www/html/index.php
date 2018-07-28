@@ -107,7 +107,7 @@ img {
            if(($_SESSION['user_role']==0) && (strlen($_SESSION['login_id']) > 0))
                {
                echo "User is buyer ...user logged in";
-              include_once ("storescripts/header.php"); 
+              include_once ("buyer_header.php"); 
                }
                
              if(($_SESSION['user_role']==1)&& (strlen($_SESSION['login_id']) > 0)){
