@@ -66,7 +66,7 @@ require 'functions.php';
         }
         else{
            
-        echo $_SESSION['login_id'];
+       // echo $_SESSION['login_id'];
     include_once("postlogin_header.php");
         }
     ?>
