@@ -11,17 +11,26 @@ session_start();
 </head>
 <body background="images/landscape/LS_1.jpg" size="cover">
 <div align="center" id="mainWrapper">
-     <?php 
+      <?php 
     if(strlen($_SESSION['login_id']) <= 0)
     {
-      
+        //echo "User session <0 ...user not logged inxxxxxx";
         include_once("template_header.php");
         }
-        else{
-           
         
-    include_once("postlogin_header.php");
-        }
+           if(($_SESSION['user_role']==0) && (strlen($_SESSION['login_id']) > 0))
+               {
+               //echo "User is buyer ...user logged in";
+              include_once ("buyer_header.php"); 
+               }
+               
+             if(($_SESSION['user_role']==1)&& (strlen($_SESSION['login_id']) > 0)){
+                 //echo "User session >0 ...seller user logged in";
+            
+           include_once("postlogin_header.php");
+             }
+    
+        
     ?>
 	
     <h1>About Us</h1>
