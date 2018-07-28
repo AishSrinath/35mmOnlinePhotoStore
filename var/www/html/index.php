@@ -92,21 +92,10 @@ img {
 
 <body>
 <div align="center" id="mainWrapper">
-     <?php 
-    if(strlen($_SESSION['login_id']) <= 0)
-    {
-      
-        include_once("template_header.php");
-        }
-        else{
-           
-        echo $_SESSION['login_id'];
-    include_once("postlogin_header.php");
-        }
-    ?>
+     
 	
             
-          //  <?php include_once("template_header.php"); ?>
+     <?php include_once("template_header.php"); ?>
             
             
 </div>
