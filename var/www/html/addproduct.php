@@ -161,14 +161,14 @@ $image_largeFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if file already exists
 if (file_exists($target_file)) {
- // echo "Sorry, file already exists.";
+  echo "Sorry, file already exists.";
     $uploadOk1 = 0;
 }
 
 // Allow certain file formats
 if($image_largeFileType != "jpg" && $image_largeFileType != "png" && $image_largeFileType != "jpeg"
 && $image_largeFileType != "gif" ) {
-  //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk1 = 0;
 }
 // Check if $uploadOk is set to 0 by an error
