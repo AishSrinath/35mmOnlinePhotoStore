@@ -130,11 +130,11 @@ img {
      <?php 
     if(strlen($_SESSION['login_id']) <= 0)
     {
-      echo "session ID is null";
+      
         include_once("template_header.php");
         }
         else{
-           echo "session ID is NOT null................";
+           
         echo $_SESSION['login_id'];
     include_once("postlogin_header.php");
         }
