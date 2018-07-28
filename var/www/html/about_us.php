@@ -5,7 +5,7 @@
 <title>About Us</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
 </head>
-<body background="style/background.jpg">
+<body background="images/landscape/LS_1.jpg">
 <div align="center" id="mainWrapper">
 	<?php include_once("template_header.php"); ?>
     <h1>About Us</h1>
