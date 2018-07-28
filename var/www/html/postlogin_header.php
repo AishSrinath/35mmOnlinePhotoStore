@@ -22,7 +22,7 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
   <a href="product.php">Product</a>
   <a href="addproduct.php">Add Product</a>
   </div> 
-<div style="float: right;">
+<div class ="navbar" style="float: right;">
   <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
   <a href="logout.php">Logout</a>
   </div>
