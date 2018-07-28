@@ -61,12 +61,11 @@ require 'functions.php';
     <?php 
     if(strlen($_SESSION['login_id']) <= 0)
     {
-        echo "Login ID is empty";
-        echo $_SESSION['login_id'];
+      
         include_once("template_header.php");
         }
         else{
-            echo "Login ID is not empty.......";
+           
         echo $_SESSION['login_id'];
     include_once("postlogin_header.php");
         }
