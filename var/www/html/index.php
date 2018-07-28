@@ -106,7 +106,23 @@ img {
 
 <body>
 <div align="center" id="mainWrapper">
-	<?php include_once("template_header.php"); ?>
+     <?php 
+    if(strlen($_SESSION['login_id']) <= 0)
+    {
+      
+        include_once("template_header.php");
+        }
+        else{
+           
+        echo $_SESSION['login_id'];
+    include_once("postlogin_header.php");
+        }
+    ?>
+	
+            
+          //  <?php include_once("template_header.php"); ?>
+            
+            
 </div>
  <div class="container">
   <div class="mySlides">
