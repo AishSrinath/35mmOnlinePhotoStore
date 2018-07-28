@@ -19,6 +19,8 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
   <a href="about_us.php">About Us</a>
   <a href="discover.php">Discover</a>
   <a href="product.php">My Account</a>
+  <a href="product.php">Product</a>
+  <a href="addproduct.php">Add Product</a>
   </div> 
   <?php 
   if(isset($_SESSION["user_role"]))
