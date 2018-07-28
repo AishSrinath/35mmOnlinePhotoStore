@@ -98,7 +98,7 @@ $sqlcat = "SELECT * FROM category ";
         if($i%3 == 0) {
             echo "<tr>";
         }
-          echo"<td><img src='{$row['image_small']}' alt={$row['image_title']} class='responsive' width='600' height='400'<br>Product Name:{$row['product_name']}<br>Small Resolution Price:{$row['price_small']}<br>High Resolution Price:{$row['price']} <br>select product type: <select name='image_type'><option value='large'>High Resolution</option><option value='small'>Small Resolution</option></select><br><button type='submit' name='buy'>Buy Now</button> </td>";
+          echo"<td><img src='{$row['image']}' alt={$row['image_title']} class='responsive' width='600' height='400'<br>Product Name:{$row['product_name']}<br>Small Resolution Price:{$row['price_small']}<br>High Resolution Price:{$row['price']} <br>select product type: <select name='image_type'><option value='large'>High Resolution</option><option value='small'>Small Resolution</option></select><br><button type='submit' name='buy'>Buy Now</button> </td>";
         if($i%3 == 2) {
             echo "</tr>";
         }

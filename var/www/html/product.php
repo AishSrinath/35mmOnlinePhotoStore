@@ -152,7 +152,7 @@ if(mysqli_affected_rows($db_connect))
 }
             
             echo $imagefold;?></td>
-            <td><?php echo "<img src='{$row['image_small']}' alt={$row['product_name']} class='responsive' width='100' height='100'/>";?></td>
+            <td><?php echo "<img src='{$row['image']}' alt={$row['product_name']} class='responsive' width='100' height='100'/>";?></td>
             <td><?php echo $row['date_added'];?></td>
             <td>
                                                                     <a  href="delete_product.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure?')" style="color: red;"> 
