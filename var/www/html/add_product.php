@@ -76,7 +76,7 @@ if (isset($_POST['reg_product']))
     $product_name =  mysqli_real_escape_string($db_connect,$_REQUEST['product_name']);
     $details      =  mysqli_real_escape_string($db_connect,$_REQUEST['details']);
     $price        =  mysqli_real_escape_string($db_connect,$_REQUEST['price']); 
-    $price_small  =  mysqli_real_escape_string($db_connect,$_REQUEST['price_small']);
+    //$price_small  =  mysqli_real_escape_string($db_connect,$_REQUEST['price_small']);
     $user_id      = $_SESSION['login_id']; 
     //
     $sqlcat1 = "SELECT * FROM category WHERE id='$category'";
@@ -130,7 +130,7 @@ if ($uploadOk == 0) {
 }  
 
 $image_large = $_FILES["image_large"]["tmp_name"];
-$sql= "insert into products(category,product_name,details,price,price_small,user_id,status) values('$category','$product_name','$details','$price','$price_small','$user_id','1')";
+$sql= "insert into products(category,product_name,details,price,user_id,status) values('$category','$product_name','$details','$price','$user_id','1')";
 mysqli_query($db_connect,$sql) or die("error");
 $product_id = mysqli_insert_id($db_connect); 
 
@@ -182,7 +182,7 @@ $sqlcat = "SELECT * FROM category ";
   	  <label>Price Large Photo</label>
           <input type="text" name="price" value="" required="">
   	</div>
-  	<div class="input-group">
+  	<!--<div class="input-group">
   	  <label>Small Photo</label>
          <input type="file" name="image_small" id="image_small" />
   	</div>
@@ -190,7 +190,7 @@ $sqlcat = "SELECT * FROM category ";
       <div class="input-group">
   	  <label>Price Small Photo</label>
           <input type="text" name="price_small" value="" >
-  	</div>
+  	</div>-->
 
     
   	<div class="input-group">
