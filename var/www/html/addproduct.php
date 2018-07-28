@@ -184,8 +184,10 @@ if ($uploadOk1 == 0) {
 }  
 
 $image_large = $target_file;
-$sql= "insert into products(category,product_name,details,price,user_id,status,date_added) values('$category','$product_name','$details','$price','$user_id','1',now())";
-mysqli_query($db_connect,$sql) or mysqli_error($db_connect);
+echo $sql= "insert into products(category,product_name,details,price,user_id,status,date_added) values('$category','$product_name','$details','$price','$user_id','1',now())";
+mysqli_query($db_connect,$sql) or die(mysqli_error($db_connect));
+//$sql= "insert into products(category,product_name,details,price,user_id,status,date_added) values('$category','$product_name','$details','$price','$user_id','1',now())";
+//mysqli_query($db_connect,$sql) or mysqli_error($db_connect);
 $product_id = mysqli_insert_id($db_connect); 
 
 $sql1= "UPDATE  products SET image='$image_large' WHERE id='$product_id'";
