@@ -37,10 +37,7 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
        <?php if($_SESSION["user_role"]==2){ ?>
           <a href="add_category.php">Add Category</a>
           <a href="category.php">Category</a>
-  <div style="float: right;">
-  <a href="#"><?php echo "Welcome  ".$fetch1['firstname']; ?></a>
-  <a href="logout.php">Logout</a>
-  </div>
+ 
        <?php } } ?> 
 </div>
   </tr>
