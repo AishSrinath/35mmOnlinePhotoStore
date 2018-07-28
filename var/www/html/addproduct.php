@@ -144,35 +144,35 @@ if(mysqli_affected_rows($db_connect))
 $target_file = $target_dir .mt_rand(100000, 999999).basename($_FILES["image_large"]["name"]);
 
 
-$uploadOk = 1;
+$uploadOk1 = 1;
 $image_largeFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image_large file is a actual image or fake image_large
 
     $check = getimagesize($_FILES["image_large"]["tmp_name"]);
     if($check !== false) {
-       echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
+      // echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk1 = 1;
     } else {
-     echo "File is not an image.";
-        $uploadOk = 0;
+   //  echo "File is not an image.";
+        $uploadOk1 = 0;
     }
     
 
 // Check if file already exists
 if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
-    $uploadOk = 0;
+ // echo "Sorry, file already exists.";
+    $uploadOk1 = 0;
 }
 
 // Allow certain file formats
 if($image_largeFileType != "jpg" && $image_largeFileType != "png" && $image_largeFileType != "jpeg"
 && $image_largeFileType != "gif" ) {
-  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
+  //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk1 = 0;
 }
 // Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+if ($uploadOk1 == 0) {
+   echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["image_large"]["tmp_name"], $target_file)) {
