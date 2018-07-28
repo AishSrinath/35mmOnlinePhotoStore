@@ -21,10 +21,10 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
   <a href="product.php">My Account</a>
   <a href="product.php">Product</a>
   <a href="addproduct.php">Add Product</a>
-  </div> 
-<div class ="navbar" style="float: right;">
+<div style="float: right;">
   <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
   <a href="logout.php">Logout</a>
+  </div>
   </div>
   <?php 
   if(isset($_SESSION["user_role"]))
