@@ -104,14 +104,14 @@ img {
         include_once("template_header.php");
         }
         
-           if($_SESSION['user_role']==0)
+           if(($_SESSION['user_role']==0) && (strlen($_SESSION['login_id']) > 0))
                {
                echo "User is buyer ...user logged in";
               include_once("storescripts/header.php"); 
                }
                
-             if(strlen($_SESSION['login_id']) > 0){
-                 echo "User session >0 ...user logged in";
+             if(($_SESSION['user_role']==1)&& (strlen($_SESSION['login_id']) > 0)){
+                 echo "User session >0 ...seller user logged in";
             
            include_once("postlogin_header.php");
              }
