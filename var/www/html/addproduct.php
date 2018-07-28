@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once ("storescripts/connect_to_mysql.php");
 ob_start();
 session_start();
 //echo $_SESSION['login_id'];
