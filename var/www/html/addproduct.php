@@ -154,21 +154,21 @@ $image_largeFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $uploadOk1 = 1;
         
     } else {
-   //  echo "File is not an image.";
+    echo "File is not an image.I am resetting $uploadOk1 to 0";
         $uploadOk1 = 0;
     }
     
 
 // Check if file already exists
 if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
+  echo "Sorry, file already exists.I am resetting $uploadOk1 to 0";
     $uploadOk1 = 0;
 }
 
 // Allow certain file formats
 if($image_largeFileType != "jpg" && $image_largeFileType != "png" && $image_largeFileType != "jpeg"
 && $image_largeFileType != "gif" ) {
-  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.I am resetting $uploadOk1 to 0";
     $uploadOk1 = 0;
 }
 // Check if $uploadOk is set to 0 by an error
