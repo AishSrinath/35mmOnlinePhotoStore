@@ -32,7 +32,7 @@ session_start();
     
         
     ?>
-<img src="images/landscape/LS_1.jpg" alt="landscape" style = "width: 75%">	
+<img src="images/landscape/LS_1.jpg" alt="landscape" style = "width:50%">	
     <h1>About Us</h1>
 <p>Welcome to 35mm Online Photostore, your number one source for online photo shopping. We're dedicated to giving you the very best of photographs taken by professionals under various categories, with a focus on dependability, customer service and uniqueness.</p>
 
