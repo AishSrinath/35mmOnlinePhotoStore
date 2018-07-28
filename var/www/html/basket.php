@@ -120,16 +120,6 @@ return true;
   <a href="index.php">Home</a>
   <a href="about_us.php">About Us</a>
   <a href="discover.php">Discover</a>
-  <div class="dropdown">
-    <button class="dropbtn">My Account
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="login.php">Login</a>
-      <a href="register.php">Register</a>
-    </div>
-      
-  </div>
   <div style="float: right;">
   <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
   <a href="logout.php">Logout</a>
