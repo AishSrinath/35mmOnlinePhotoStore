@@ -159,7 +159,7 @@ if(mysqli_affected_rows($db_connect))
 										 
 										Delete
 									</a>-->
-                  <a  href="delete_product.php" onclick="return confirm('Are you sure?')" style="color: red;"> 
+                  <a  href="product.php" onclick="return confirm('Are you sure?')" style="color: red;"> 
 										 
 										Delete
                   </a>
