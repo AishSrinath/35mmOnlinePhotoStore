@@ -1,7 +1,7 @@
 <?php 
 ob_start();
 session_start();
-include_once ("storescripts/header.php");
+include_once ("buyer_header.php");
 $id=$_SESSION['login_id'];
 $sql_admin="select * from user where id='$id'";
 $sql_admin_query=mysqli_query($db_connect, $sql_admin);
