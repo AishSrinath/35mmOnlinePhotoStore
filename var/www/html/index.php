@@ -100,20 +100,23 @@ img {
 	 <?php 
     if(strlen($_SESSION['login_id']) <= 0)
     {
-      
+        echo "User session <0 ...user not logged inxxxxxx";
         include_once("template_header.php");
         }
-        else{
+        
            if($_SESSION['user_role']==0)
                {
+               echo "User is buyer ...user logged in";
               include_once("storescripts/header.php"); 
-           }
-             else{
+               }
+               
+             if(strlen($_SESSION['login_id']) > 0){
+                 echo "User session >0 ...user logged in";
             
            include_once("postlogin_header.php");
              }
     
-        }
+        
     ?>
             
     
