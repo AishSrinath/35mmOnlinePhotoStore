@@ -120,7 +120,7 @@ img {
     ?>
 	
             
-          //  <?php include_once("template_header.php"); ?>
+         
             
             
 </div>
