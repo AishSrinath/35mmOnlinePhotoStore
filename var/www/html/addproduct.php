@@ -1,5 +1,4 @@
-<?php
-include_once ("storescripts/connect_to_mysql.php");
+<?php 
 ob_start();
 session_start();
 //echo $_SESSION['login_id'];
@@ -27,7 +26,6 @@ $_SESSION['EXPIRES'] = time() + 900; // 150 seconds (2.5 mins)
 <meta charset="UTF-8">
 <title>Product</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
-
 <script language="javascript1.5" type="text/javascript">
 function submitform()
 {
@@ -148,28 +146,28 @@ $target_file = $target_dir .mt_rand(100000, 999999).basename($_FILES["image_larg
 
 $uploadOk = 1;
 $image_largeFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image_large file is a actual image_large or fake image_large
+// Check if image_large file is a actual image or fake image_large
 
     $check = getimagesize($_FILES["image_large"]["tmp_name"]);
     if($check !== false) {
-       // echo "File is an image_large - " . $check["mime"] . ".";
+       echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-     //   echo "File is not an image_large.";
+     echo "File is not an image.";
         $uploadOk = 0;
     }
     
 
 // Check if file already exists
 if (file_exists($target_file)) {
-  //  echo "Sorry, file already exists.";
+  echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($image_largeFileType != "jpg" && $image_largeFileType != "png" && $image_largeFileType != "jpeg"
 && $image_largeFileType != "gif" ) {
-   // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
@@ -178,9 +176,9 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["image_large"]["tmp_name"], $target_file)) {
-        //echo "The file ". basename( $_FILES["image_large"]["name"]). " has been uploaded.";
+        echo "The file ". basename( $_FILES["image_large"]["name"]). " has been uploaded.";
     } else {
-      //  echo "Sorry, there was an error uploading your file.";
+     echo "Sorry, there was an error uploading your file.";
     }
 }  
 
@@ -246,10 +244,10 @@ mysqli_query($db_connect,$sql1) or die("error");
 $msg= $_REQUEST['msg'];
 ?>
 <form method="post" name="f1" action="addproduct.php"  enctype= "multipart/form-data">
-  	<?php include('errors.php'); ?>
-      <?php if(!empty($msg)) {?>
-      <span style="color:red"><?php echo "Product added successfully!";?></span>
-      <?php }?>
+<?php include('errors.php'); ?>
+<?php if(!empty($msg)) {?>
+<span style="color:red"><?php echo "Product added successfully!";?></span>
+<?php }?>
       <div class="input-group">
   	  <label>Select Category</label>
           <select name="category">
@@ -276,7 +274,6 @@ $sqlcat = "SELECT * FROM category ";
         <div class="input-group">
   	  <label>Description</label>
           <textarea name="details" rows="4" cols="50">
-
 </textarea> 
   	</div>
   	
@@ -305,7 +302,6 @@ $sqlcat = "SELECT * FROM category ";
   	</div>
   </form>
   	</div>    
-	<?php include_once("template_footer.php"); ?>
-
+<?php include_once("template_footer.php"); ?>
 </body>
 </html>
