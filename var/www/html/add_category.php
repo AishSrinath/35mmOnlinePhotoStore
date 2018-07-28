@@ -1,122 +1,116 @@
 <?php 
 ob_start();
 session_start();
-$id=$_SESSION['login_id'];
-$sql_admin="select * from admin where id='$id'";
-$sql_admin_query=mysqli_query($db_connect, $sql_admin);
-$fetch=  mysqli_fetch_assoc($sql_admin_query);
+//echo $_SESSION['login_id'];
+//exit;
+if (!(isset($login) && $login == true)) {
+    if (!isset($_SESSION['login_id']) || (isset($_SESSION['login_id']) && strlen($_SESSION['login_id']) <= 0)) {
+      
+        header("Location: login.php");
+    }
+
+    if (isset($_SESSION['EXPIRES']) && strlen($_SESSION['EXPIRES']) > 0 && $_SESSION['EXPIRES'] < time()) {
+        $_SESSION['login_username'] = "";
+        $_SESSION['login_id'] = "";
+        $_SESSION['EXPIRES'] = "";
+        
+       header("Location:login.php?Exit=exp");
+        exit;
+    }
+}
+$_SESSION['EXPIRES'] = time() + 900; // 150 seconds (2.5 mins) 
 ?>
-<style>
-body {
-  font-family: Arial;
-  margin: 0;
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+<link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+
+<script language="javascript1.5" type="text/javascript">
+function submitform()
+{
+  var det=document.getElementsByName('cid[]');
+  var l=det.length;	
+  var flag=1;
+  for (var i=0;i<l;i++)
+  {
+	var num=det[i].value;
+	var imei=trimSpaces(document.getElementById("pqty"+num).value);
+	if(imei=="" || imei<=0)
+    {
+	  flag=0;
+	  break;
+	}
+   }
+   if (flag==0)
+   {
+   		alert("Please enter valid quantity");
+   		return false;
+    }
+	document.cartform.submit();
+	return true;
+}	
+function onlyNumbers(evt)
+
+{
+
+var e = window.event || evt; // for trans-browser compatibility
+
+var charCode = e.which || e.keyCode;
+
+    if (charCode==46)
+
+ return true; 
+
+if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+return false;
+
+return true;
+
+}
+ function trimSpaces(stringValue) {
+	// Checks the first occurance of spaces and removes them
+	for(i = 0; i < stringValue.length; i++) {
+		if(stringValue.charAt(i) != " ") {
+			break;
+		}
+	}
+	if(i > 0) {
+		stringValue = stringValue.substring(i);
+	}
+	// Checks the last occurance of spaces and removes them
+	strLength = stringValue.length - 1;
+	for(i = strLength; i >= 0; i--) {
+		if(stringValue.charAt(i) != " ") {
+			break;
+		}
+	}
+	if(i < strLength) {
+		stringValue = stringValue.substring(0, i + 1);
+	}
+	// Returns the string after removing leading and trailing spaces.
+	return stringValue;
 }
 
-* {
-  box-sizing: border-box;
-}
 
-img {
-  vertical-align: middle;
-}
+</script>
 
-/* Position the image container (needed to position the left and right arrows) */
-.container {
-  position: relative;
-}
+</head>
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Container for image text */
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-</style>
-<div id="pageHeader"><table width="100%" border="0" cellspacing="0" cellpadding="12">
-<a href="index.php"><img src="http://35.198.90.129/style/logo.jpg" width="75" height="60" alt="logo" align="left"/><br />
-    <p align="left" style="color:black"><i><b>For the artist in you</b></i></p><br />
-<div class="navbar">
-  <a href="index.php">Home</a>
-  <a href="about_us.php">About Us</a>
-  <a href="discover.php">Discover</a>
-  <a href="category.php">Category</a>
-  <div style="float: right;">
-      <a href="logout.php">Logout</a>
-  </div>
-</div>
-</div>
+<body>    
+    
+<div align="center" id="mainWrapper">
 <?php 
+
+include_once ("template_header.php");
+?>
+
+
+<?php 
+ 
+
 if (isset($_POST['add']))
 {
 $category_name=  mysqli_real_escape_string($db_connect,$_REQUEST['category_name']);
@@ -125,14 +119,21 @@ mysqli_query($db_connect,$sql);
  header('location:category.php');
 }
 ?>
-<?php include_once("template_header.php"); ?>
+
   <form method="post" action="">
-      <div class="input-group">
+  	
+  	
+        <div class="input-group">
   	  <label>Category Name</label>
           <input type="text" name="category_name" required="">
   	</div>
+        
   	<div class="input-group">
   	  <button type="submit" class="btn" name="add">ADD</button>
   	</div>
   </form>
-<?php include_once("template_footer.php"); ?>
+  	</div>    
+	<?php include_once("template_footer.php"); ?>
+
+</body>
+</html>

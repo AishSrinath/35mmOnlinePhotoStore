@@ -1,18 +1,16 @@
 <?php
-require "storescripts/connect_to_mysql.php";
-$conn = mysqli_connect($db_host, $db_username, $db_pass, $db_name);
-
-$sql = "SELECT id, firstname, lastname FROM user";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-    }
+function inser_user($user_role,$username,$password,$firstname,$lastname,$email) {
+require 'storescripts/connect_to_mysql.php';
+$password_md5 = md5($password);
+$sql = "INSERT INTO user (user_role, username, password, firstname, lastname, email) VALUES ('$user_role', '$username', '$password_md5', '$firstname', '$lastname', '$email')";
+if (mysqli_query($db_connect, $sql)) {
+    echo "New record created successfully";
 } else {
-    echo "0 results";
+    echo "Error: " . $sql . "<br>" . mysqli_error($db_connect);
 }
-
-mysqli_close($conn);
+mysqli_close($db_connect);
+};
 ?>
+
+<?php inser_user('1','aditi','password','Aditi','Srinath','aditi@gmail.com') ?>
+

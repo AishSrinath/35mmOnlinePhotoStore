@@ -7,6 +7,29 @@ if(!isset($_SESSION['login_id']))
     header("Location:login.php");
 }
  $user_id      = $_SESSION['login_id']; 
+ 
+ if (isset($_GET['action']) && $_GET['action']=="remove")
+{
+  $sql="delete from tbl_cart where cart_id=".$_GET['id'];
+  mysqli_query($db_connect,$sql) or die(mysqli_error($db_connect));
+ } 
+ 
+ 
+ if (isset($_POST['submit1']))
+{
+  $nos=$_POST['cid'];
+  foreach ($nos as $id)
+   {
+     $sql="update tbl_cart set cart_qty=".$_POST['pqty'.$id]." where cart_id=".$id." and cart_sessionid='".session_id()."'" ;
+	// echo $sql;
+     mysqli_query($db_connect,$sql);
+  }
+}
+
+$sql_admin="select * from user where id='$user_id'";
+$sql_admin_query=mysqli_query($db_connect, $sql_admin);
+$fetch=  mysqli_fetch_assoc($sql_admin_query);
+ 
 ?>
 <!doctype html>
 <html>
@@ -90,18 +113,45 @@ return true;
 <body>    
     
 <div align="center" id="mainWrapper">
-	<?php include_once("template_header.php"); ?>
+	<div id="pageHeader"><table width="100%" border="0" cellspacing="0" cellpadding="12">
+<a href="index.php"><img src="http://35.198.90.129/style/logo.jpg" width="75" height="60" alt="logo" align="left"/><br />
+<p align="left"><i>For the artist in you</i></p><br />
+<div class="navbar">
+  <a href="index.php">Home</a>
+  <a href="about_us.php">About Us</a>
+  <a href="discover.php">Discover</a>
+  <div class="dropdown">
+    <button class="dropbtn">My Account
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="login.php">Login</a>
+      <a href="register.php">Register</a>
+    </div>
+      
+  </div>
+  <div style="float: right;">
+  <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
+  <a href="logout.php">Logout</a>
+  </div>
+</div>
+  </tr>
+  </tbody>
+  </table>
+</div>
+
+
     
     
 <div id="tbl_container_demo_grid1" class="table-responsive">
 <form action="basket.php" method="post" name="cartform">
                <table cellpadding="0" cellspacing="0" class="basketTbl">
                     	<tr style="color: blue;">
-                        	<th>Qty</th>
-                            <th>Item</th>
-                            <th class="desc">Description</th>
-                            <th>Price</th>
-                            <th>&nbsp;</th>
+                        <th>Qty</th>
+                        <th>Item</th>
+                        <th class="desc">Description</th>
+                        <th>Price</th>
+                        <th>&nbsp;</th>
                          </tr>
                          <?php
 						  $tot=0;
@@ -123,9 +173,9 @@ return true;
                         	<td><input  type="text" class="inputField"  id="pqty<?php echo $row['cart_id'] ?>" onkeypress="return onlyNumbers(event);" maxlength="3" name="pqty<?php echo $row['cart_id'] ?>" size="10" value="<?= $row['cart_qty'] ?>"/></td>
                             <td><img src="<?=$img?>" width="70px"  height="70px"/></td>
                             <td><?=$row['cart_pname']?></td>
-                            <td><img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></td>
+                            <td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></td>
                             <td>
-                            <a  onclick="return confirm ('Are you sure?')" href="basket.php?action=remove&id=<?php echo $row['cart_id'] ?>"><img src="images/basket-remove.gif" /> </a>                            </td>
+                            <a  onclick="return confirm ('Are you sure?')" href="basket.php?action=remove&id=<?php echo $row['cart_id'] ?>"><img src="images/basket-remove.gif" />  </a>                            </td>
                          </tr>
          				 <input type="hidden" value="<?php echo $row['cart_id'] ?>" name="cid[]">
 					<?php
@@ -162,7 +212,14 @@ return true;
                          </tr>
                        </table>
            	<input  type="hidden"  name="submit1" value="" />
-        </form>  
+        </form>
+    <div class="basketButtons">
+    <a href="discover.php" class="btn-grey btn-bas-contshopping">< Continue Shopping</a>
+    <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a>
+    <a onclick="return submitform()" href="javascript:void(0)" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
+    </div>
+    
+    
 </div>    
 	<?php include_once("template_footer.php"); ?>
 </div>

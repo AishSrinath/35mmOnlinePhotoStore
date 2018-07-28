@@ -12,7 +12,7 @@ $row = mysqli_fetch_assoc($result_product);
 $pqty=$_POST['pqty'];
 
 $pcode=$_POST['pcode'];
-echo $image_type=$_POST['image_type'];
+$image_type=$_POST['image_type'];
 
 if($image_type=='large')
 {
@@ -20,10 +20,9 @@ $pprice=$row['price'];
 $pimage = $row['image'];
 }
  else {
-$pprice=$row['price']; 
+$pprice=$row['price_small']; 
 $pimage = $row['image_small'];  
 }
-
 
 /*if (strlen(trim($pimage))==0)
 	$pimage='NULL';*/

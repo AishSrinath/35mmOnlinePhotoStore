@@ -1,4 +1,3 @@
-<?php ob_start(); ?>
 <!doctype html>
 <html>
 <head>
