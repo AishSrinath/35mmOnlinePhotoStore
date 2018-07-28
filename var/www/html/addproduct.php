@@ -8,7 +8,6 @@ if (!(isset($login) && $login == true)) {
       
         header("Location: login.php");
     }
-
     if (isset($_SESSION['EXPIRES']) && strlen($_SESSION['EXPIRES']) > 0 && $_SESSION['EXPIRES'] < time()) {
         $_SESSION['login_username'] = "";
         $_SESSION['login_id'] = "";
@@ -38,8 +37,6 @@ table {
     width: 100%;
     background-color:black;
 }
-
-
 .input-group {
   margin: 10px 0px 10px 0px;
 }
@@ -111,23 +108,14 @@ function submitform()
 	return true;
 }	
 function onlyNumbers(evt)
-
 {
-
 var e = window.event || evt; // for trans-browser compatibility
-
 var charCode = e.which || e.keyCode;
-
     if (charCode==46)
-
  return true; 
-
 if (charCode > 31 && (charCode < 48 || charCode > 57))
-
 return false;
-
 return true;
-
 }
  function trimSpaces(stringValue) {
 	// Checks the first occurance of spaces and removes them
@@ -152,8 +140,6 @@ return true;
 	// Returns the string after removing leading and trailing spaces.
 	return stringValue;
 }
-
-
 </script>
 
 </head>
@@ -162,8 +148,7 @@ return true;
     
 <div align="center" id="mainWrapper">
 <?php 
-
-//include_once ("postlogin_header.php");
+include_once ("postlogin_header.php");
 ?>
 
 
@@ -189,24 +174,15 @@ if(mysqli_affected_rows($db_connect))
               }
 }
  //
-
-
-
-
     if (!file_exists($imagefold)) {
-
     mkdir($imagefold, 0777, true);
 }
-
 //For upload image_large  
  $target_dir = "$imagefold/";
 $target_file = $target_dir .mt_rand(100000, 999999).basename($_FILES["image_large"]["name"]);
-
-
 $uploadOk1 = 1;
 $image_largeFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image_large file is a actual image or fake image_large
-
     $check = getimagesize($_FILES["image_large"]["tmp_name"]);
     if($check !== false) {
         echo "I am in file size check.";
@@ -218,13 +194,11 @@ $image_largeFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $uploadOk1 = 0;
     }
     
-
 // Check if file already exists
 if (file_exists($target_file)) {
   echo "Sorry, file already exists.I am resetting $uploadOk1 to 0";
     $uploadOk1 = 0;
 }
-
 // Allow certain file formats
 if($image_largeFileType != "jpg" && $image_largeFileType != "png" && $image_largeFileType != "jpeg"
 && $image_largeFileType != "gif" ) {
@@ -242,19 +216,16 @@ if ($uploadOk1 == 0) {
      echo "Sorry, there was an error uploading your file.";
     }
 }  
-
 $image_large = $target_file;
 echo $sql= "insert into products(category,product_name,details,price,user_id,status,date_added) values('$category','$product_name','$details','$price','$user_id','1',now())";
 mysqli_query($db_connect,$sql) or die(mysqli_error($db_connect));
 //$sql= "insert into products(category,product_name,details,price,user_id,status,date_added) values('$category','$product_name','$details','$price','$user_id','1',now())";
 //mysqli_query($db_connect,$sql) or mysqli_error($db_connect);
 $product_id = mysqli_insert_id($db_connect); 
-
 $sql1= "UPDATE  products SET image='$image_large' WHERE id='$product_id'";
 mysqli_query($db_connect,$sql1) or die("error in update");
  header('location:addproduct.php?msg=1'); 
 }
-
 $msg= $_REQUEST['msg'];
 ?>
 <form method="post" name="f1" action="addproduct.php"  enctype= "multipart/form-data">
@@ -317,4 +288,3 @@ $sqlcat = "SELECT * FROM category ";
 <?php include_once("template_footer.php"); ?>
 </body>
 </html>
-
