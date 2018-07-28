@@ -19,6 +19,7 @@ $fetch1=  mysqli_fetch_assoc($sql_admin_query1);
   <a href="about_us.php">About Us</a>
   <a href="discover.php">Discover</a>
   <a href="product.php">My Account</a>
+
 <div style="float: right;">
   <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
   <a href="logout.php">Logout</a>
