@@ -79,21 +79,14 @@ session_start();
     
         
     ?>
-   <div class="navbar">
-        <a href="index.php">Home</a>
-        <a href="about_us.php">About Us</a>
-        <a href="discover.php">Discover</a>
-        <div style="float: right;">
-        <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
-        <a href="logout.php">Logout</a>
-        </div>  </div>
+    </div>
     <div>
         <p style="font-size:20px;font-family:Algerian;color:orange;"><i><?php echo "Thank you for choosing 35mm ".$fetch['firstname']; ?></i></p>
         <p style="font-size:20px;font-family:Imprint MT Shadow;color:red;"><i><b>Please proceed to payment.An automated email notification has been sent to your registered email...</b></i></p>
          </div>  
      <form name="shipform" id="payform" action="paypalbutton.html" method="post"> 
          <div class="input-group">
- <input type="submit" name="paypal" class="btn" value="Proceed to payment">
+ <input type="submit" name="paypal" class="button" value="Proceed to payment">
          </div>          
        </form> 
 </div>
