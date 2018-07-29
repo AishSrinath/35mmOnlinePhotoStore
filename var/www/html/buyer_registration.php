@@ -27,7 +27,7 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
         <p style="font-size:40px;font-family:Algerian;color:orange;"><i><?php echo "Welcome  ".$fetch['firstname']; ?></i></p>
         <p style="font-size:30px;font-family:Imprint MT Shadow;color:red;"><i><b>Thank you for registering with us</b></i></p>
         <p style="font-size:25px;font-family:Imprint MT Shadow;"><i>To browse through our exclusive photo collection click on the above <b>Discover Tab</b></i></p>
-        <br><br><p style="font-size:35px;font-family:Algerian;color:indigo;"><i><b>Happy Shopping....!!!</b></i></p>	
+        <br><br><br><br><br><p style="font-size:35px;font-family:Algerian;color:indigo;"><i><b>Happy Shopping....!!!</b></i></p>	
     </div>    
 </div>
     <?php include_once("template_footer.php"); ?>
