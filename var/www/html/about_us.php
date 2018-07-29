@@ -41,9 +41,9 @@ session_start();
 <p>We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.</p>
 	
 <h1>Online Shopping Help</h1>
-<div align="left"><p> Contact us about online shopping and selling by:</p><br>
-<p> Phone: 0899456721 or 0899438755</p><br>
-<p> Email: 35mm@mydbs.ie</p></div>
+<div align="left"><p> Contact us about online shopping and selling by:</p>
+<p style="color:blue">Phone: 0899456721 or 0899438755<br>
+Email: 35mm@mydbs.ie</p></div>
 <?php include_once("template_footer.php"); ?>
 </div>
 </body>
