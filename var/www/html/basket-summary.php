@@ -108,7 +108,8 @@ if (isset($_POST['submit']))
                   <table width="500" border="0" cellpadding="5">
                   
                   <td align="center" valign="center">
-    <img src="images/remove.png" height="40" width="40"/>
+                      <a href="basket.php" class="btn-lightpurple btn-bas-checkout">
+                          <img src="images/remove.png" height="40" width="40"/></a>
 <br/>
 <a href="basket.php" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
 </td>
