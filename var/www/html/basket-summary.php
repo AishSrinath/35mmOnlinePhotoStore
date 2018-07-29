@@ -78,36 +78,24 @@ $_SESSION['uid'] = $user_id;
 		  }	
 		?>     
     
-<table>
-<tr><td>
-      <div class="input-group">
 
+<div id="tbl_container_demo_grid1" class="table-responsive">
+   <div class="basketOuter">
            
            <h4>Order Summary</h4>
         <?php   
            while($row=mysqli_fetch_array($result))
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
-                      echo "cart quantity---------------";
-                      
 	   ?>	   
-           <?php echo $row['cart_qty']; ?>
-            <p><?php=$row['cart_qty'] ?>  <?php=$row['cart_pname']?> <?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></p>
-            
-            
+           <p><?php=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
        <?php
 	   		}
 		     
 		?>	     
            
-<p class="postageTotal">
-    <span>Cart quantity:</span><img src="./images/euro.jpg" border="0" style="border:none;"/>
-        <?php echo $row['cart_qty']; ?>
-</p>
-            
-            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"/><?php echo number_format($tot,2) ?></p>
-            
-            
+
+            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($tot,2) ?></p>
              
                  <form name="shipform" id="shipform" action="basket-summary.php" method="post"> 
                 
@@ -409,11 +397,9 @@ $_SESSION['uid'] = $user_id;
            
        </form> 	
         
-       
+        </div>
+</div>    
 	<?php include_once("template_footer.php"); ?>
 </div>
 </body>
 </html>
-
-
-
