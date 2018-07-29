@@ -25,5 +25,4 @@ function sendmail ($cxname,$cxemail,$subject,$body) {
         echo 'Message has been sent';
     }
 }
-sendmail('Aiswarya G','aiswarya.g2008@gmail.com','TEST','TEST');
 ?>

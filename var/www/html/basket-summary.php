@@ -27,15 +27,7 @@ if (isset($_POST['submit']))
 <meta charset="UTF-8">
 <title>Product</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
-<script type="text/javascript">
 
-    function openPopup() {
-
-            window.open("about_us.php", "_blank", "WIDTH=1080,HEIGHT=790,scrollbars=no, menubar=no,resizable=yes,directories=no,location=no");  
-               
-                }
-
-</script>
 </head>
 
 <body>
@@ -109,7 +101,7 @@ if (isset($_POST['submit']))
            </table> 
             
              
-       <form name="shipform" id="shipform" action="paypalbutton.html" method="post"> 
+       <form name="shipform" id="shipform" action="email_notify.php" method="post"> 
                 
               <span id="adrchange" style="display:block"> 
                   
@@ -415,7 +407,7 @@ if (isset($_POST['submit']))
       </span>   
                 
               
-                <input type="submit" name="placeorder" value="Place Order" onclientclick="return openPopup()">
+                <input type="submit" name="placeorder" value="Place Order">
             
             </p>
            
