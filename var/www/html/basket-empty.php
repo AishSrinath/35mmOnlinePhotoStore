@@ -26,5 +26,16 @@ if(!isset($_SESSION['login_id']))
 </div>    
 	<?php include_once("template_footer.php"); ?>
 </div>
+    <table width="500" border="0" cellpadding="5">
+
+<tr>
+
+<td align="center" valign="center">
+<img src="images/cart.jpg" height="40" width="40"/>
+<br />
+<a href="discover.php" class="btn-grey btn-bas-contshopping"> Continue Shopping</a>
+</td>
+</tr>
+    </table>
 </body>
 </html>
