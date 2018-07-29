@@ -6,6 +6,14 @@ $id=$_SESSION['login_id'];
 $sql_admin="select * from user where id='$id'";
 $sql_admin_query=mysqli_query($db_connect, $sql_admin);
 $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Buyer home</title>
+<link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+</head>
+
+<body background="flower.jpg">
 <div class="navbar">
   <a href="index.php">Home</a>
   <a href="about_us.php">About Us</a>
@@ -17,7 +25,7 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
   </div>
       
     </div>
-    <P><h1>Buyer Registration</h1></P>
+    <p style="font-size:50px;"><i>Welcome to 35mmPhotoStore.Please select discover to browse through our exclusive photo collection.</i></p>
 	<?php include_once("template_footer.php"); ?>
 </div>
 </body>
