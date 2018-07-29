@@ -200,10 +200,28 @@ return true;
            	<input  type="hidden"  name="submit1" value="" />
         </form>
     <div class="basketButtons">
+        
+        <table width="500" border="0" cellpadding="5">
+
+<tr>
+
+<td align="center" valign="center">
+<img src="images/cart.jpg" height="40" width="40"/>
+<br />
+<a href="discover.php" class="btn-grey btn-bas-contshopping"> Continue Shopping</a>
+</td>
+<td align="center" valign="center">
+    <img src="images/checkout.png" height="40" width="40"/>
+<br />
+<a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a>
+</td>
+</tr>
+
+</table>
         <table>
   <tr>
-      <th><a href="discover.php" class="btn-grey btn-bas-contshopping"> <img src="images/cart.jpg" height="10" width="10"/>Continue Shopping</a></th><td></td><td></td>
-    <th> <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a></th><td></td><td></td>
+      <th></th><td></td><td></td>
+    <th> </th><td></td><td></td>
     <th><a onclick="return submitform()" href="javascript:void(0)" class="btn-lightpurple btn-bas-checkout">Update Cart</a></th>
   </tr>
         </table>
