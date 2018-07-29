@@ -148,9 +148,9 @@ include_once("template_header.php"); ?>
         </p>
   </form>
     
-    <form action="/mail.php" method="get">
+  <!--  <form action="/mail.php" method="get">
   <button type="submit" class="btn" value="Submit">Forgot password</button>
-</form>
+</form>-->
 <?php include 'includes/footer.php' ?>;
 </body>
 </html>
