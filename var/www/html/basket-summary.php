@@ -94,14 +94,14 @@ $_SESSION['uid'] = $user_id;
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
 	   ?>	   
-  <tr><td><p><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+  <tr><td><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td>(<img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)
        <?php
 	   		}
 		     
 		?>	     
            </td></tr>
 <tr><td>
-            <p class="postageTotal"><span>Subtotal:</span></td><td></td><td><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?></p>
+            <p class="postageTotal"><span>Subtotal:</span></td><td></td><td><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?>
         </td></tr>    
            </table> 
             
