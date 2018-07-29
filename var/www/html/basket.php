@@ -132,10 +132,12 @@ return true;
 
 
     
-    
+<div align="center">
+<h1 style="color:orange; font-family:Imprint MT Shadow;background-color:lightgrey;"><em><i>Products Added To The Cart</i></em></h1>
+    </div>     
 <div id="tbl_container_demo_grid1" class="table-responsive">
 <form action="basket.php" method="post" name="cartform">
-               <table cellpadding="0" cellspacing="0" class="basketTbl">
+               <table cellpadding="0" cellspacing="55" class="basketTbl">
                     	<tr style="color: blue;">
                         <th>Qty</th>
                         <th>Item</th>
