@@ -17,12 +17,12 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;                    //SMTP port
 
 $mail->setFrom('noreply@35mm.com', '35mm.com');
-$mail->addAddress('aiswarya.g2008@gmail.com', 'Aiswarya G');
+$mail->addAddress('10378895@mydbs.ie', 'Nandita Krishnamurthy');
 
 $mail->isHTML(true);
 
-$mail->Subject = 'TEST FROM 35mm.com';
-$mail->Body    = 'TEST FROM 35mm.com';
+$mail->Subject = 'TEST';
+$mail->Body    = 'TEST';
 
 if (!$mail->send()) {
     echo 'Message could not be sent.';
