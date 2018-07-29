@@ -168,6 +168,7 @@ return true;
                             <td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></td>
                             <td>
                                 <a  onclick="return confirm ('Are you sure?')" href="basket.php?action=remove&id=<?php echo $row['cart_id'] ?>"><img src="images/delete.png" height="10" width="10"/>  </a>                            </td>
+                        
                          </tr>
          				 <input type="hidden" value="<?php echo $row['cart_id'] ?>" name="cid[]">
 					<?php
