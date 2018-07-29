@@ -103,7 +103,7 @@ $_SESSION['uid'] = $user_id;
            </table> 
             
              
-                 <form name="shipform" id="shipform" action="basket-summary.php" method="post"> 
+       <form name="shipform" id="shipform" action="paypalbutton.html" method="post"> 
                 
               <span id="adrchange" style="display:block">     
       
