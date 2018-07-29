@@ -113,7 +113,7 @@ include_once ("postlogin_header.php");
 <h1 style="color:orange; font-family:Imprint MT Shadow;"><em><i>Products Added By You For Sale</i></em></h1>
     </div>   
 <div id="tbl_container_demo_grid1" class="table-responsive">
-   <table id="tbl_demo_grid1" class="table table-bordered table-hover">
+   <table id="tbl_demo_grid1" class="table table-bordered table-hover" cellspacing="50">
       <thead>
          <tr id="tbl_demo_grid1_tr_0" style="color: blue;">
              <th class="th-common">No</th>
