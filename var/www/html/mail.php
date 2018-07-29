@@ -1,10 +1,33 @@
 <?php
-// the message
-$msg = "First line of text\nSecond line of text";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
-// send email
-mail("aiswarya.g2008@gmail.com","My subject",$msg);
+$mail = new PHPMailer(true);
+
+$mail->isSMTP();
+$mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
+$mail->SMTPAuth = true;
+$mail->Username = '35mm2018@gmail.com';   //username
+$mail->Password = 'Sri123$$';   //password
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;                    //SMTP port
+
+$mail->setFrom('noreply@35mm.com', '35mm.com');
+$mail->addAddress('aiswarya.g2008@gmail.com', 'Aiswarya G');
+
+$mail->isHTML(true);
+
+$mail->Subject = 'TEST FROM 35mm.com';
+$mail->Body    = 'TEST FROM 35mm.com';
+
+if (!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
 ?>
