@@ -1,3 +1,4 @@
+
 <?php 
 ob_start();
 session_start();
@@ -13,7 +14,7 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
 </head>
 
-<body background="images/flower.jpg">
+<body background="images/puppy.jpg">
 <div class="navbar">
   <a href="index.php">Home</a>
   <a href="about_us.php">About Us</a>
@@ -25,7 +26,7 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
   </div>
       
     </div>
-    <p style="font-size:30px;"><i>Welcome to 35mmPhotoStore.Please select discover to browse through our exclusive photo collection.</i></p>
+    <p style="font-size:20px;" style="text-align:center;" style="font-family:TimesNewRoman;"><i>Welcome to 35mmPhotoStore.Please select discover to browse through our exclusive photo collection.</i></p>
 	<?php include_once("template_footer.php"); ?>
 </div>
 </body>
