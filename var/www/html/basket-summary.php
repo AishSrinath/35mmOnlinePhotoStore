@@ -101,7 +101,11 @@ $_SESSION['uid'] = $user_id;
 		?>	     
            </td></tr>
 <tr><td>
-            <p class="postageTotal"><span>Subtotal:</span></td><td></td><td><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?>
+            <p class="postageTotal"><span>Subtotal:</span></td>
+    <td></td>
+    <td>€
+        
+        <?php echo number_format($tot,2) ?>
         </td></tr>    
            </table> 
             
