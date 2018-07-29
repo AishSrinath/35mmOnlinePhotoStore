@@ -13,7 +13,7 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
 <title>Buyer home</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
 </head>
-<body background="images/flowers.jpg">
+<body background="images/white.jpg">
 <div align="center" id="mainWrapper">
     <div class="navbar">
         <a href="index.php">Home</a>
