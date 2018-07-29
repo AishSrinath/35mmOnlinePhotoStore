@@ -102,13 +102,13 @@ $_SESSION['uid'] = $user_id;
    <div class="basketOuter">
            
            <h4>Order Summary</h4>
-        <?   
+        <?php   
            while($row=mysqli_fetch_array($result))
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
 	   ?>	   
-            <p><?=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (<img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
-       <?
+            <p><?php=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (<img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+       <?php
 	   		}
 			$sql="SELECT * FROM tbl_vat WHERE now( ) >= vat_startdate AND now( ) <= vat_enddate";
 			$resultvat=mysqli_query($db_connect,$sql);
