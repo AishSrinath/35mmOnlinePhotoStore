@@ -186,13 +186,7 @@ return true;
                          	<td colspan="5" class="basketItemEnd"></td>
                          </tr>
                          
-                          <tr>
-                        	<td></td>
-                            <td></td>
-                            <td class="postage">Subtotal</td>
-                            <td>€<?php echo number_format($tot,2) ?></td>
-                            <td></td>
-                         </tr>
+                        
                         
                           
                           <tr class="basketRowHiglight">
@@ -206,9 +200,14 @@ return true;
            	<input  type="hidden"  name="submit1" value="" />
         </form>
     <div class="basketButtons">
-    <a href="discover.php" class="btn-grey btn-bas-contshopping">< Continue Shopping</a>
-    <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a>
-    <a onclick="return submitform()" href="javascript:void(0)" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
+        <table>
+  <tr>
+    <th><a href="discover.php" class="btn-grey btn-bas-contshopping">< Continue Shopping</a></th>
+    <th> <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a></th>
+    <th><a onclick="return submitform()" href="javascript:void(0)" class="btn-lightpurple btn-bas-checkout">Update Cart</a></th>
+  </tr>
+        </table>
+    
     </div>
     
     
