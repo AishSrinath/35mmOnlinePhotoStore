@@ -29,5 +29,16 @@ include_once ("template_header.php");
  }	
  header('location:product.php');
  ?>
+    <table width="500" border="0" cellpadding="5">
+
+<tr>
+
+<td align="center" valign="center">
+<img src="images/cart.jpg" height="40" width="40"/>
+<br />
+<a href="discover.php" class="btn-grey btn-bas-contshopping"> Continue Shopping</a>
+</td>
+</tr>
+    </table>
 </body>
 </html>
