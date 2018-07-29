@@ -207,13 +207,15 @@ return true;
 <tr>
 
 <td align="center" valign="center">
-<img src="images/cart.jpg" height="40" width="40"/>
+    <a href="discover.php" class="btn-grey btn-bas-contshopping">
+        <img src="images/cart.jpg" height="40" width="40"/></a>
 <br />
 <a href="discover.php" class="btn-grey btn-bas-contshopping"> Continue Shopping</a>
 </td>
 
 <td align="center" valign="center">
-    <img src="images/checkout.png" height="40" width="40"/>
+    <a href="basket-summary.php" class="btn-purple btn-bas-checkout">
+        <img src="images/checkout.png" height="40" width="40"/></a>
 <br/>
 <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a>
 </td>
