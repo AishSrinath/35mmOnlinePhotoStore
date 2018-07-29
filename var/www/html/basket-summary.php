@@ -18,6 +18,7 @@ $_SESSION['uid'] = $user_id;
  	 header("location:login.php?action=checkout");
  	 exit;
   } 	
+
   if (isset($_POST['submit']))
   {
   	
@@ -31,23 +32,6 @@ $_SESSION['uid'] = $user_id;
 <meta charset="UTF-8">
 <title>Product</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
 </head>
 
 <body>
@@ -74,11 +58,14 @@ tr:nth-child(even) {
   <a href="logout.php">Logout</a>
   </div>
 </div>
+  </tr>
+  </tbody>
   </table>
 </div>
  <?php
 	   
   	
+
  
 	  
 		  $tot=0;
@@ -96,31 +83,23 @@ tr:nth-child(even) {
    
    <div class="basketOuter">
    <table>
-   <h3 align="center" style="color:orange;">Order Summary</h3>
-           <tr>
-            <th >Items in your cart</th>
-            <th>Product Name</th>
-            <th>Price</th>
-           </tr>       
+   <h4>Order Summary</h4>
+           <tr><td>
            
-           <tr>
-            <?php   
-                     while($row=mysqli_fetch_array($result))
+        <?php   
+           while($row=mysqli_fetch_array($result))
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
-            ?>	     
-           
-            <td><?php echo $row['cart_qty'] ?></td>
-            <td><?php echo $row['cart_pname']?><p><img src="./images/euro.jpg" border="0" style="border:none;"  height="50" width="50" /></p></td>
-            <td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></td>
-           </tr>
-           
-            <tr>
-                <td><p class="postageTotal"><span>Subtotal:</span></p></td>
-            <td><?php echo $row['cart_pname']?></td>
-            <td> <img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /></td>
-            <td> <?php echo number_format($tot,2) ?></td>
-            </tr>
+	   ?>	   
+           <p>Items in Your cart<?php echo $row['cart_qty'] ?> x <?php echo $row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+       <?php
+	   		}
+		     
+		?>	     
+           </td></tr>
+<tr><td>
+            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?></p>
+        </td></tr>    
            </table> 
             
              
@@ -430,3 +409,4 @@ tr:nth-child(even) {
 </div>
 </body>
 </html>
+
