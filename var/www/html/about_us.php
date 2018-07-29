@@ -39,11 +39,12 @@ session_start();
 <p>Our website is fast growing as we are passionate about what we do- photography and bet customer service.We enable people passionate about photography discover various photographs grouped under categories for their easy access. Our website provides user friendly UI for buyers and sellers so that they can enjoy shopping with ease. </p>
 
 <p>We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.</p>
-	<?php include_once("template_footer.php"); ?>
+	
 <h1>Online Shopping Help</h1>
-<p> Contact us about online shopping and selling by:</p><br>
+<div align="left"><p> Contact us about online shopping and selling by:</p><br>
 <p> Phone: 0899456721 or 0899438755</p><br>
-<p> Email: 35mm@mydbs.ie</p>
+<p> Email: 35mm@mydbs.ie</p></div>
+<?php include_once("template_footer.php"); ?>
 </div>
 </body>
 </html>
