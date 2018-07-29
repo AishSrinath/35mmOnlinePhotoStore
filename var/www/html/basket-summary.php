@@ -80,22 +80,28 @@ $_SESSION['uid'] = $user_id;
     
 
 <div id="tbl_container_demo_grid1" class="table-responsive">
+   
    <div class="basketOuter">
+   <table>
+   <h4>Order Summary</h4>
+           <tr><td>
            
-           <h4>Order Summary</h4>
         <?php   
            while($row=mysqli_fetch_array($result))
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
 	   ?>	   
-           <p><?php echo $row['cart_qty'] ?> x <?php echo $row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+           <p>Items in Your cart<?php echo $row['cart_qty'] ?> x <?php echo $row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
        <?php
 	   		}
 		     
 		?>	     
-           
-
+           </td></tr>
+<tr><td>
             <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?></p>
+        </td></tr>    
+           </table> 
+            
              
                  <form name="shipform" id="shipform" action="basket-summary.php" method="post"> 
                 
@@ -403,3 +409,4 @@ $_SESSION['uid'] = $user_id;
 </div>
 </body>
 </html>
+
