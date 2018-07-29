@@ -23,9 +23,7 @@ if(!isset($_SESSION['login_id']))
     
 <div id="tbl_container_demo_grid1" class="table-responsive">
     <p><h1 style="color: red;">Your Shopping cart is empty</h1>
-</div>    
-	<?php include_once("template_footer.php"); ?>
-</div>
+
     <table width="500" border="0" cellpadding="5">
 
 <tr>
@@ -36,6 +34,9 @@ if(!isset($_SESSION['login_id']))
 <a href="discover.php" class="btn-grey btn-bas-contshopping"> Continue Shopping</a>
 </td>
 </tr>
+</div>    
+	<?php include_once("template_footer.php"); ?>
+</div>
     </table>
 </body>
 </html>
