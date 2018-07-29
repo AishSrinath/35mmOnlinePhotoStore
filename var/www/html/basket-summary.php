@@ -95,7 +95,7 @@ $_SESSION['uid'] = $user_id;
 		?>	     
            
 
-            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="5" width="5" /><?php echo number_format($tot,2) ?></p>
+            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?></p>
              
                  <form name="shipform" id="shipform" action="basket-summary.php" method="post"> 
                 
