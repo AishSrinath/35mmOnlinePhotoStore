@@ -88,14 +88,14 @@ $_SESSION['uid'] = $user_id;
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
 	   ?>	   
-           <p><?php echo number_format($row['cart_qty']) ?> x <?=$row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="20" width="20" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+           <p><?php echo $row['cart_qty'] ?> x <?php echo $row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
        <?php
 	   		}
 		     
 		?>	     
            
 
-            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="20" width="20" /><?php echo number_format($tot,2) ?></p>
+            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="5" width="5" /><?php echo number_format($tot,2) ?></p>
              
                  <form name="shipform" id="shipform" action="basket-summary.php" method="post"> 
                 
