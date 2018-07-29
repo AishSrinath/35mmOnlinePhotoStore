@@ -142,7 +142,7 @@ return true;
                         <th>Qty</th>
                         <th>Item</th>
                         <th class="desc">Description</th>
-                        <th>Price</th>
+                        <th>Price(€)</th>
                         <th>&nbsp;</th>
                          </tr>
                          <?php
