@@ -22,26 +22,7 @@ $_SESSION['uid'] = $user_id;
   if (isset($_POST['submit']))
   {
   	
-	$fname=str_replace("'", "''", $_POST['fname']);
-	$lname=str_replace("'", "''", $_POST['lname']);
-	$adr1=str_replace("'", "''", $_POST['adr1']);
-	$adr2=str_replace("'", "''", $_POST['adr2']);
-	$city=str_replace("'", "''", $_POST['city']);
-	$county=str_replace("'", "''", $_POST['county']);
-	$pcode=str_replace("'", "''", $_POST['pcode']);
-	$phone=str_replace("'", "''", $_POST['phone']);
-	$country=str_replace("'", "''", $_POST['country']);
-	$email=str_replace("'", "''", $_POST['email']);
-	$sql="select * from tbl_ship where ship_oid='".session_id()."'";
-	//echo $sql;
-	$result_user=mysqli_query($db_connect,$sql)or die(mysql_error());
-	if (mysqli_affected_rows($db_connect)<=0)	
-		$sql="INSERT INTO `tbl_ship` (`ship_fname`, `ship_lname`, `ship_adr1`, `ship_adr2`, `ship_city`, `ship_county`, `ship_pcode`,`ship_country`,ship_phone,`ship_email`,ship_oid) VALUES ('$fname', '$lname', '$adr1', '$adr2', '$city', '$county', '$pcode', '$country','$phone','$email','".session_id()."')";
-	else
-		$sql="update tbl_ship set ship_fname='$fname',ship_lname='$lname',ship_adr1='$adr1',ship_adr2='$adr2',ship_city='$city',ship_county='$county',ship_country='$country',ship_pcode='$pcode',ship_phone='$phone',ship_email='$email' where ship_oid='".session_id()."'";
-		//echo $sql;
-	mysqli_query($db_connect,$sql) or die(mysql_error());
-		$_SESSION['country']=$country;
+	
 }	
 	
 ?>
@@ -84,7 +65,7 @@ $_SESSION['uid'] = $user_id;
  <?php
 	   
   	
-	$_SESSION['country']=$country;
+
  
 	  
 		  $tot=0;
@@ -106,52 +87,20 @@ $_SESSION['uid'] = $user_id;
            while($row=mysqli_fetch_array($result))
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
+                      echo "cart quantity---------------";
+                      
 	   ?>	   
-            <p><?php=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (<img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+           <?php echo $row['cart_qty']; ?>
+            <p><?php=$row['cart_qty'] ?> x <?php=$row['cart_pname']?> (<img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
        <?php
 	   		}
-			$sql="SELECT * FROM tbl_vat WHERE now( ) >= vat_startdate AND now( ) <= vat_enddate";
-			$resultvat=mysqli_query($db_connect,$sql);
-			$rowvat=mysqli_fetch_array($resultvat);
-			$status=0;
-			if (isset($_SESSION['country']) && trim($_SESSION['country'])=='United Kingdom')
-			{	 
-				$sql="select * from  tbl_cart_delivery where cart_delivery_cart_id='".session_id()."'";
-				$result_cart_delivery=mysqli_query($db_connect,$sql) or die(mysql_error());
-				if (mysqli_affected_rows($db_connect))
-				{
-					$row_cart_delivery=mysqli_fetch_assoc($result_cart_delivery);
-					$status=$row_cart_delivery['cart_delivery_dstatus'];
-				
-				}	
-				
-				 if ($status==1)
-				 {
-					$sel='checked="checked"';
-					$ship=SPECIAL_POSTAGE;
-				}	
-				else if($tot>POSTAGE_LIMIT)
-					$ship=0;
-					
-				else
-					$ship=POSTAGE_CHARGE;  
-			}
-			else
-				$ship=NONUK_POSTAGE;
-			$vat=(($tot+$ship)*$rowvat['vat_rate'])/100;   
-                        
-                        
-                        
+		     
 		?>	     
            
-<p><a href="basket.php">Edit your Order </a></p>
+
             <p class="postageTotal"><span>Subtotal:</span><img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($tot,2) ?></p>
-            <p class="postageTotal"><span>Postage:</span> <img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($ship,2) ?></p>
-             <p class="postageTotal"><span>VAT:</span><img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($vat,2) ?></p>
-            <p class="orderTotal"><span>Total:</span> <img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack1" /> <?php echo number_format(($tot+$vat+$ship),2) ?>
-               
-                
-                
+             
+                 <form name="shipform" id="shipform" action="basket-summary.php" method="post"> 
                 
               <span id="adrchange" style="display:block">     
       
@@ -164,23 +113,20 @@ $_SESSION['uid'] = $user_id;
                         </tr>
                         <tr>
                         	<td>Last Name *</td>
-                            <td colspan="2"><input  type="text" class="inputFields" name="lname"  value="<?=$lname ?>"/></td>
+                            <td colspan="2"><input  type="text" class="inputFields" name="lname"  value=""/></td>
                         </tr>
                         <tr>
                         	<td>Address1 *</td>
-                            <td colspan="2"><input  type="text" class="inputFields" name="adr1"  value="<?=$adr1?>" /></td>
+                            <td colspan="2"><input  type="text" class="inputFields" name="adr1"  value="" /></td>
                         </tr>
-                        <tr>
-                        	<td>Address2</td>
-                            <td colspan="2"><input  type="text" class="inputFields" name="adr2"  value="<?=$adr2?>"/></td>
-                        </tr>
+                        
                         <tr>
                         	<td>City *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="city"  value="<?=$city?>"/></td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="city"  value=""/></td>
                         </tr>
                         <tr>
                         	<td>State *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="county"  value="<?=$county?>"/></td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="county"  value=""/></td>
                         </tr>
                         <tr>
                         	<td>Country *</td>
@@ -432,30 +378,27 @@ $_SESSION['uid'] = $user_id;
 
                             </td>
                         </tr>
-                        <tr>
-                        	<td>Post Code *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="pcode"  value="<?=$pcode?>"/></td>
-                        </tr>
+                        
                         <tr>
                         	<td>Phone *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="phone"  value="<?=$phone?>"/></td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="phone"  value=""/></td>
                         </tr>
                          <tr>
                         	<td>Email *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value="<?=$email?>"/></td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value=""/></td>
                         </tr>
                         
                     </table>
                    
-              </form> 	
+             
       </span>   
                 
-                <form name="shipform" id="shipform" action="paypal.php" method="post">
+              
                 <input type="submit" name="placeorder" value="Place Order">
             
             </p>
            
-      
+       </form> 	
         
         </div>
 </div>    
