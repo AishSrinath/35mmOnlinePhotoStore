@@ -98,22 +98,18 @@ tr:nth-child(even) {
    <table>
    <h3 align="center" style="color:orange;">Order Summary</h3>
            <tr>
-           
-        <?php   
-           while($row=mysqli_fetch_array($result))
-		   {
-		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
-	   ?>
             <th >Items in your cart</th>
             <th>Product Name</th>
             <th>Price</th>
            </tr>       
            
-       <?php
-	   		}
-		     
-		?>	     
            <tr>
+            <?php   
+                     while($row=mysqli_fetch_array($result))
+		   {
+		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
+            ?>	     
+           
             <td><?php echo $row['cart_qty'] ?></td>
             <td><?php echo $row['cart_pname']?><p><img src="./images/euro.jpg" border="0" style="border:none;"  height="50" width="50" /></p></td>
             <td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></td>
