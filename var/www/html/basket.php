@@ -162,7 +162,7 @@ return true;
 								
 							?> 
                          <tr>
-                        	<td><input  type="text" class="inputField"  id="pqty<?php echo $row['cart_id'] ?>" onkeypress="return onlyNumbers(event);" maxlength="3" name="pqty<?php echo $row['cart_id'] ?>" size="10" value="<?= $row['cart_qty'] ?>"/></td>
+                        	<td><input  type="text" class="inputField"  id="pqty<?php echo $row['cart_id'] ?>" onkeypress="return onlyNumbers(event);" maxlength="3" name="pqty<?php echo $row['cart_id'] ?>" size="10" value="<?= $row['cart_qty'] ?>"disabled/></td>
                             <td><img src="<?=$img?>" width="70px"  height="70px"/></td>
                             <td><?=$row['cart_pname']?></td>
                             <td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></td>
