@@ -100,7 +100,10 @@ $_SESSION['uid'] = $user_id;
 		     
 		?>	     
            
-<p class="postageTotal"><span>Cart quantity:</span><img src="./images/euro.jpg" border="0" style="border:none;"/><?php echo ($row['cart_qty']*$row['cart_price'],2) ?></p>
+<p class="postageTotal">
+    <span>Cart quantity:</span><img src="./images/euro.jpg" border="0" style="border:none;"/>
+        <?php echo $row['cart_qty']; ?>
+</p>
             
             <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"/><?php echo number_format($tot,2) ?></p>
             
