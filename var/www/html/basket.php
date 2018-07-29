@@ -202,8 +202,8 @@ return true;
     <div class="basketButtons">
         <table>
   <tr>
-      <th><a href="discover.php" class="btn-grey btn-bas-contshopping">< Continue Shopping</a></th><td></td>
-    <th> <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a></th><td></td>
+      <th><a href="discover.php" class="btn-grey btn-bas-contshopping"> Continue Shopping</a></th><td></td><td></td>
+    <th> <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a></th><td></td><td></td>
     <th><a onclick="return submitform()" href="javascript:void(0)" class="btn-lightpurple btn-bas-checkout">Update Cart</a></th>
   </tr>
         </table>
