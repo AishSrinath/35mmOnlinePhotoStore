@@ -82,16 +82,19 @@ $_SESSION['uid'] = $user_id;
 <div id="tbl_container_demo_grid1" class="table-responsive">
    
    <div class="basketOuter">
-   <table cellspacing="10">
+   <table cellspacing="15">
    <h4>Order Summary</h4>
-           <tr><td>
-           
+   <tr>
+   <th >Items in your cart</th>
+    <th>Product Name</th>
+    <th>Price</th>
+  </tr>     
         <?php   
            while($row=mysqli_fetch_array($result))
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
 	   ?>	   
-                   <p><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="50" width="50" /></td><td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+            <tr><td><p><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="50" width="50" /></td><td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
        <?php
 	   		}
 		     
