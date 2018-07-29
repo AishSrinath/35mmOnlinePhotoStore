@@ -112,7 +112,19 @@ $_SESSION['uid'] = $user_id;
              
        <form name="shipform" id="shipform" action="paypalbutton.html" method="post"> 
                 
-              <span id="adrchange" style="display:block">     
+              <span id="adrchange" style="display:block"> 
+                  
+                  <table width="500" border="0" cellpadding="5">
+                  
+                  <td align="center" valign="center">
+    <img src="images/remove.png" height="40" width="40"/>
+<br/>
+<a href="basket.php" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
+</td>
+
+</tr>
+
+</table>
       
         <h4>Add Delivery Address</h4>
                     <table cellpadding="0" cellspacing="0" class="createAccTbl">
