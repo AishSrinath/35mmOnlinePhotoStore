@@ -94,7 +94,7 @@ $_SESSION['uid'] = $user_id;
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
 	   ?>	   
-  <tr><td><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>
+  <tr><td><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td>€<?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>
        <?php
 	   		}
 		     
@@ -105,7 +105,7 @@ $_SESSION['uid'] = $user_id;
     <td></td>
     <td>€
         
-        <?php echo number_format($tot,2) ?>
+   <?php echo number_format($tot,2) ?>
         </td></tr>    
            </table> 
             
