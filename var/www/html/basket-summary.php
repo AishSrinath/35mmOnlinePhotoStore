@@ -87,7 +87,7 @@ $_SESSION['uid'] = $user_id;
    <tr>
    <th>Quantity</th>
     <th>Product Name</th>
-    <th>Price</th>
+    <th>Price in Euros</th>
   </tr>     
         <?php   
            while($row=mysqli_fetch_array($result))
