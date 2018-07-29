@@ -216,6 +216,7 @@ return true;
 <br/>
 <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a>
 </td>
+
 <td align="center" valign="center">
     <img src="images/remove.png" height="40" width="40"/>
 <br/>
