@@ -25,7 +25,7 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
   </div>
       
     </div>
-    <p style="font-size:50px;"><i>Welcome to 35mmPhotoStore.Please select discover to browse through our exclusive photo collection.</i></p>
+    <p style="font-size:30px;"><i>Welcome to 35mmPhotoStore.Please select discover to browse through our exclusive photo collection.</i></p>
 	<?php include_once("template_footer.php"); ?>
 </div>
 </body>
