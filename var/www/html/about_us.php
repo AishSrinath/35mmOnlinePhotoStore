@@ -32,7 +32,7 @@ session_start();
     
         
     ?>
-<img src="images/landscape/LS_1.jpg" alt="landscape" style = "width:50%">	
+<img src="images/landscape/LS_1.jpg" alt="landscape" style="width:800px;height:200px;">	
     <h1>About Us</h1>
 <p>Welcome to 35mm Online Photostore, your number one source for online photo shopping. We're dedicated to giving you the very best of photographs taken by professionals under various categories, with a focus on dependability, customer service and uniqueness.</p>
 
@@ -40,6 +40,10 @@ session_start();
 
 <p>We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.</p>
 	<?php include_once("template_footer.php"); ?>
+<h1>Online Shopping Help</h1>
+<p> Contact us about online shopping and selling by:</p><br>
+<p> Phone: 0899456721 or 0899438755</p><br>
+<p> Email: 35mm@mydbs.ie</p>
 </div>
 </body>
 </html>
