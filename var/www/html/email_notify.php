@@ -91,9 +91,9 @@ form, .content {
         <p style="font-size:20px;font-family:Imprint MT Shadow;color:red;"><i><b>Please proceed to payment.An automated email notification has been sent to your registered email...</b></i></p>
          </div>  
      <form name="shipform" id="payform" action="paypalbutton.html" method="post"> 
-         <div class="input-group">
+         
  <input type="submit" name="paypal" class="btn" value="Proceed to payment">
-         </div>          
+                   
        </form> 
 </div>
    	
