@@ -114,19 +114,17 @@ tr:nth-child(even) {
 		     
 		?>	     
            <tr>
-            <td><?php echo $row['cart_qty'] ?>1</td>
-            <td><?php echo $row['cart_pname']?><p><img src="./images/euro.jpg" border="0" style="border:none;"  height="50" width="50" /></p>Blue</td>
-            <td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>100</td>
+            <td><?php echo $row['cart_qty'] ?></td>
+            <td><?php echo $row['cart_pname']?><p><img src="./images/euro.jpg" border="0" style="border:none;"  height="50" width="50" /></p></td>
+            <td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?></td>
            </tr>
            
             <tr>
-            <td>Sub-total</td>
-            <td><?php echo $row['cart_pname']?>
-            <p class="postageTotal"><img src="img_chania.jpg" border="0" style="border:none;"  height="50" width="50" /></p>Blue</td><td><?php echo number_format($tot,2) ?>100</td>
+                <td><p class="postageTotal"><span>Subtotal:</span></p></td>
+            <td><?php echo $row['cart_pname']?></td>
+            <td> <img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /></td>
+            <td> <?php echo number_format($tot,2) ?></td>
             </tr>
-<tr><td>
-            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?></p>
-        </td></tr>    
            </table> 
             
              
