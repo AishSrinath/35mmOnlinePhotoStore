@@ -210,21 +210,22 @@ return true;
 <br />
 <a href="discover.php" class="btn-grey btn-bas-contshopping"> Continue Shopping</a>
 </td>
+
 <td align="center" valign="center">
     <img src="images/checkout.png" height="40" width="40"/>
-<br />
+<br/>
 <a href="basket-summary.php" class="btn-purple btn-bas-checkout">Checkout</a>
 </td>
+<td align="center" valign="center">
+    <img src="images/remove.png" height="40" width="40"/>
+<br/>
+<a onclick="return submitform()" href="javascript:void(0)" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
+</td>
+
 </tr>
 
 </table>
-        <table>
-  <tr>
-      <th></th><td></td><td></td>
-    <th> </th><td></td><td></td>
-    <th><a onclick="return submitform()" href="javascript:void(0)" class="btn-lightpurple btn-bas-checkout">Update Cart</a></th>
-  </tr>
-        </table>
+       
     
     </div>
     
