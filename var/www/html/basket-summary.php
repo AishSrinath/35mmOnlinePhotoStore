@@ -82,10 +82,10 @@ $_SESSION['uid'] = $user_id;
 <div id="tbl_container_demo_grid1" class="table-responsive">
    
    <div class="basketOuter">
-   <table cellspacing="15">
-   <h4>Order Summary</h4>
+   <table cellspacing="20">
+   <h3 align="center" style="color:orange;">Order Summary</h3>
    <tr>
-   <th >Items in your cart</th>
+   <th>Quantity</th>
     <th>Product Name</th>
     <th>Price</th>
   </tr>     
@@ -94,14 +94,14 @@ $_SESSION['uid'] = $user_id;
 		   {
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
 	   ?>	   
-            <tr><td><p><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="50" width="50" /></td><td><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+  <tr><td><p><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td> (<img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
        <?php
 	   		}
 		     
 		?>	     
            </td></tr>
 <tr><td>
-            <p class="postageTotal"><span>Subtotal:</span><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?></p>
+            <p class="postageTotal"><span>Subtotal:</span></td><td></td><td><img src="./images/euro.jpg" border="0" style="border:none;"  height="10" width="10" /><?php echo number_format($tot,2) ?></p>
         </td></tr>    
            </table> 
             
