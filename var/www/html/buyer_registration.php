@@ -14,7 +14,7 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
 </head>
 
-<body background="images/puppy.jpg">
+<body background="images/puppy.png">
 <div class="navbar">
   <a href="index.php">Home</a>
   <a href="about_us.php">About Us</a>
