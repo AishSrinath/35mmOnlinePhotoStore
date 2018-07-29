@@ -141,9 +141,15 @@ include_once("template_header.php"); ?>
   	</div>
   	<p>
   	Not yet a member? <a href="register.php">Sign up</a>
+       
   	</p>
         <p style="color: red;">
           <?php echo $msg; ?>  
         </p>
   </form>
+    
+    <form method="get" action="mail.php">
+         <button type="submit"class="btn">Forgot Password</button>
+ 
+</form>
 <?php include 'includes/footer.php' ?>;
