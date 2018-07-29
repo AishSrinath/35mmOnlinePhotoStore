@@ -22,16 +22,12 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
         <div style="float: right;">
         <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
         <a href="logout.php">Logout</a>
-        </div>  
+        </div>  </div>
     <div>
         <p style="font-size:40px;font-family:Algerian;color:orange;"><i><?php echo "Welcome  ".$fetch['firstname']; ?></i></p>
   <p style="font-size:30px;font-family:Imprint MT Shadow;color:red;"><i><b>Thank you for registering with us</b></i></p><p style="font-size:25px;font-family:Imprint MT Shadow;"><i>To browse through our exclusive photo collection click on the above <b>Discover Tab</b></i></p><p style="font-size:35px;font-family:Algerian;color:indigo;"><i><b>Happy Shopping....!!!</b></i></p>	
     </div>    
     </div>
-    <div>
-    <p style="font-size:20px;" style="text-align:center;" style="font-family:TimesNewRoman;"><i>Welcome to 35mmPhotoStore.Please select discover to browse through our exclusive photo collection.</i></p>	
-    </div> 
-</div>
     <?php include_once("template_footer.php"); ?>
 </body>
 </html>
