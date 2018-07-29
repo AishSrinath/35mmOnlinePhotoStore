@@ -190,7 +190,7 @@ return true;
                         	<td></td>
                             <td></td>
                             <td class="postage">Subtotal</td>
-                            <td><img src="./images/euro.jpg" border="0" height="10" width="10" /><?php echo number_format($tot,2) ?></td>
+                            <td>€<?php echo number_format($tot,2) ?></td>
                             <td></td>
                          </tr>
                         
@@ -199,7 +199,7 @@ return true;
                         	<td></td>
                             <td></td>
                             <td class="total">Total</td>
-                            <td class="totalCost" width="120"><img src="./images/euro.jpg" height="10" width="10"/> <span id="tot"> <?php echo number_format(($tot),2) ?> </span></td>
+                            <td class="totalCost" width="120">€<span id="tot"> <?php echo number_format(($tot),2) ?> </span></td>
                             <td></td>
                          </tr>
                        </table>
