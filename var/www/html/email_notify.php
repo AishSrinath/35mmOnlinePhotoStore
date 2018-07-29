@@ -12,48 +12,54 @@ session_start();
 <title>About Us</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
 <style>
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+form, .content {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
 }
-
-/* Style the buttons inside the tab */
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
+.input-group {
+  margin: 10px 0px 10px 0px;
 }
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
 }
-
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: #5F9EA0;
+  border: none;
+  border-radius: 5px;
 }
-.responsive {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+.error {
+  width: 92%;
+  margin: 0px auto;
+  padding: 10px;
+  border: 1px solid #a94442;
+  color: #a94442;
+  background: #f2dede;
+  border-radius: 5px;
+  text-align: left;
 }
-
+.success {
+  color: #3c763d;
+  background: #dff0d8;
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
 </style>
 </head>
 <body>
@@ -86,7 +92,7 @@ session_start();
          </div>  
      <form name="shipform" id="payform" action="paypalbutton.html" method="post"> 
          <div class="input-group">
- <input type="submit" name="paypal" class="button" value="Proceed to payment">
+ <input type="submit" name="paypal" class="btn" value="Proceed to payment">
          </div>          
        </form> 
 </div>
