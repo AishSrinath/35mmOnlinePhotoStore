@@ -26,7 +26,11 @@ $fetch=  mysqli_fetch_assoc($sql_admin_query);?>
   </div>
       
     </div>
+    <div>
     <p style="font-size:20px;" style="text-align:center;" style="font-family:TimesNewRoman;"><i>Welcome to 35mmPhotoStore.Please select discover to browse through our exclusive photo collection.</i></p>
+	
+</div>
+</div>    
 	<?php include_once("template_footer.php"); ?>
 </div>
 </body>
