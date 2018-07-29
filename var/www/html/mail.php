@@ -12,7 +12,7 @@ $mail->isSMTP();
 $mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
 $mail->SMTPAuth = true;
 $mail->Username = '35mm2018@gmail.com';   //username
-$mail->Password = 'Sri123$$';   //password
+$mail->Password = 'bVQke"(s-$CA4"*x';   //password
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;                    //SMTP port
 
