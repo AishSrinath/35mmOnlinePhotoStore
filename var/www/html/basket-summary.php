@@ -1,30 +1,25 @@
 <?php
-  ob_start();
-  session_start();
- error_reporting(E_ALL);
- include_once ("storescripts/connect_to_mysql.php");
+ob_start();
+session_start();
+error_reporting(E_ALL);
+include_once ("storescripts/connect_to_mysql.php");
 ini_set('display_errors', '0');
-if(!isset($_SESSION['login_id']))
-{
+if(!isset($_SESSION['login_id'])) {
     header("Location:login.php");
 }
-$user_id      = $_SESSION['login_id']; 
-$sql_admin="select * from user where id='$user_id'";
-$sql_admin_query=mysqli_query($db_connect, $sql_admin);
-$fetch=  mysqli_fetch_assoc($sql_admin_query);
-$_SESSION['uid'] = $user_id;
-  if (strlen($_SESSION['uid'])<=0)
-  {
- 	 header("location:login.php?action=checkout");
- 	 exit;
-  } 	
-
-  if (isset($_POST['submit']))
-  {
-  	
-	
-}	
-	
+    $user_id      = $_SESSION['login_id']; 
+    $sql_admin="select * from user where id='$user_id'";
+    $sql_admin_query=mysqli_query($db_connect, $sql_admin);
+    $fetch=  mysqli_fetch_assoc($sql_admin_query);
+    $_SESSION['uid'] = $user_id;
+    if (strlen($_SESSION['uid'])<=0)
+        {
+ 	header("location:login.php?action=checkout");
+ 	exit;
+    } 	
+if (isset($_POST['submit']))
+{	
+}		
 ?>
 <!doctype html>
 <html>
@@ -32,6 +27,15 @@ $_SESSION['uid'] = $user_id;
 <meta charset="UTF-8">
 <title>Product</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+<script type="text/javascript">
+
+    function openPopup() {
+
+            window.open("about_us.php", "_blank", "WIDTH=1080,HEIGHT=790,scrollbars=no, menubar=no,resizable=yes,directories=no,location=no");  
+               
+                }
+
+</script>
 </head>
 
 <body>
@@ -63,11 +67,6 @@ $_SESSION['uid'] = $user_id;
   </table>
 </div>
  <?php
-	   
-  	
-
- 
-	  
 		  $tot=0;
 		  $items=0;
 		  $sql="select * from tbl_cart where cart_sessionid='".session_id()."'";
@@ -416,7 +415,7 @@ $_SESSION['uid'] = $user_id;
       </span>   
                 
               
-                <input type="submit" name="placeorder" value="Place Order">
+                <input type="submit" name="placeorder" value="Place Order" onclientclick="return openPopup()">
             
             </p>
            
