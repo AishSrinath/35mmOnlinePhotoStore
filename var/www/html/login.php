@@ -137,7 +137,7 @@ include_once("template_header.php"); ?>
   	</div>
   	<div class="input-group">
   	<button type="submit" class="btn" name="login">Login</button>
-        
+        <button type="reset" class="btn" value="Reset">Reset</button>
   	</div>
   	<p>
   	Not yet a member? <a href="register.php">Sign up</a>
@@ -148,8 +148,10 @@ include_once("template_header.php"); ?>
         </p>
   </form>
     
-    <form method="get" action="mail.php">
-         <button type="submit"class="btn">Forgot Password</button>
- 
+    <form action="/mail.php" method="get">
+  <button type="submit" class="btn" value="Submit">Forgot password</button>
 </form>
 <?php include 'includes/footer.php' ?>;
+</body>
+</html>
+
