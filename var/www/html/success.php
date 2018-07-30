@@ -1,47 +1,30 @@
-<?php
+<?php 
 include_once ("storescripts/connect_to_mysql.php");
 //return to uRL
-
-
 $st = $_REQUEST['st'];
-
-if($st=="Completed")
-{
+if($st=="Completed") {
+//Transaction Succeeded
     $status = 1;
-  //Transaction completed  
+} else {
+    $status = 0;
+//Transaction failed
 }
- else {
-      $status = 0;
-    //transaction failde
-}
-    
-
 ?>
-
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
 <input type="submit" value="" />
-<title>paypal</title>
+<title>Order Summary</title>
 </head>
 <body>    
 <?php
-
-if($status==1)
-{
+if($status==1) {
     echo "Payment was successfull!";
-}
- else {
+} else {
     echo "Payment failed please try again!";
-    ?>
-    <p><a href="basket.php">Continue Shopping </a></p>
-    <?php
-
- }
-
-
 ?>
-
+<p><a href="basket.php">Continue Shopping </a></p>
+<?php } ?>
 </body>
 </html>
