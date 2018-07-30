@@ -17,9 +17,7 @@ $_SESSION['uid'] = $user_id;
   {
  	 header("location:login.php?action=checkout");
  	 exit;
-  } 	
-	
-	
+  } 		
 ?>
 <!doctype html>
 <html>
@@ -58,11 +56,6 @@ $_SESSION['uid'] = $user_id;
   </table>
 </div>
  <?php
-	   
-  	
-
- 
-	  
 		  $tot=0;
 		  $items=0;
 		  $sql="select * from tbl_cart where cart_sessionid='".session_id()."'";
@@ -79,37 +72,22 @@ $_SESSION['uid'] = $user_id;
    <div class="basketOuter">
            
            <h4>Order Summary</h4>
-        <?   
+        <?php   
            while($row=mysqli_fetch_array($result))
-		   {
-               
-             
-               
-               
-		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
-                      
-               $product_name        = $row['cart_pname'];
-               $product_qty         = $row['cart_qty'];
-               $product_price       = $row['cart_price'];
-               $total               = $tot;
-	   ?>	   
+		   {  
+                $tot=$tot+$row['cart_qty']*($row['cart_price']);  
+                $product_name        = $row['cart_pname'];
+                $product_qty         = $row['cart_qty'];
+                $product_price       = $row['cart_price'];
+                $total               = $tot;
+	?>	   
             <p><?=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (€<?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
-       <?
-	   		}
-		
-                        
-                        
-                        
-		?>	     
+        <?php } ?>	     
            
-<p><a href="basket.php">Edit your Order </a></p>
+            <p><a href="basket.php">Edit your Order </a></p>
             <p class="postageTotal"><span>Subtotal:</span>€<?php echo number_format($tot,2) ?></p>
-               <p class="orderTotal"><span>Total:</span>€<?php echo number_format(($tot+$vat+$ship),2) ?>
-               
-                
-                
-                
-              <span id="adrchange" style="display:block">     
+            <p class="orderTotal"><span>Total:</span>€<?php echo number_format(($tot+$vat+$ship),2) ?>
+            <span id="adrchange" style="display:block">     
       
         <h4>Add Delivery Address</h4>
                     <table cellpadding="0" cellspacing="0" class="createAccTbl">
