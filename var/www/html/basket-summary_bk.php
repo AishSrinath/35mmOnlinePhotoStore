@@ -7,15 +7,16 @@ ini_set('display_errors', '0');
 if(!isset($_SESSION['login_id'])) {
     header("Location:login.php");
 }
-$user_id      = $_SESSION['login_id']; 
-$sql_admin="select * from user where id='$user_id'";
-$sql_admin_query=mysqli_query($db_connect, $sql_admin);
-$fetch=  mysqli_fetch_assoc($sql_admin_query);
-$_SESSION['uid'] = $user_id;
-if (strlen($_SESSION['uid'])<=0) {
-    header("location:login.php?action=checkout");
-    exit;
-}	
+    $user_id      = $_SESSION['login_id']; 
+    $sql_admin="select * from user where id='$user_id'";
+    $sql_admin_query=mysqli_query($db_connect, $sql_admin);
+    $fetch=  mysqli_fetch_assoc($sql_admin_query);
+    $_SESSION['uid'] = $user_id;
+    if (strlen($_SESSION['uid'])<=0)
+        {
+ 	header("location:login.php?action=checkout");
+ 	exit;
+    } 	
 if (isset($_POST['submit']))
 {	
 }		
@@ -23,106 +24,129 @@ if (isset($_POST['submit']))
 <!doctype html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Product</title>
-    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+<meta charset="UTF-8">
+<title>Product</title>
+<link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+
 </head>
+
 <body>
-    <div align="center" id="mainWrapper">
-        <div id="pageHeader"><table width="100%" border="0" cellspacing="0" cellpadding="12">
-                <a href="index.php"><img src="http://35.198.90.129/style/logo.jpg" width="75" height="60" alt="logo" align="left"/><br />
-                    <p align="left"><i>For the artist in you</i></p><br />
-                    <div class="navbar">
-                        <a href="index.php">Home</a>
-                        <a href="about_us.php">About Us</a>
-                        <a href="discover.php">Discover</a>
-                        <div class="dropdown">
-                            <button class="dropbtn">My Account
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="login.php">Login</a>
-                                <a href="register.php">Register</a>
-                            </div>
-                        </div>
-                        <div style="float: right;">
-                            <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
-                            <a href="logout.php">Logout</a>
-                        </div>
-                    </div>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-<?php
-$tot=0;
-$items=0;
-$sql="select * from tbl_cart where cart_sessionid='".session_id()."'";
-$result=mysqli_query($db_connect,$sql);
-if (mysqli_affected_rows($db_connect)<=0)
-    {
-    header('location:basket-empty.php');
-    }	
-?>     
+<div align="center" id="mainWrapper">
+    <div id="pageHeader"><table width="100%" border="0" cellspacing="0" cellpadding="12">
+<a href="index.php"><img src="http://35.198.90.129/style/logo.jpg" width="75" height="60" alt="logo" align="left"/><br />
+<p align="left"><i>For the artist in you</i></p><br />
+<div class="navbar">
+  <a href="index.php">Home</a>
+  <a href="about_us.php">About Us</a>
+  <a href="discover.php">Discover</a>
+  <div class="dropdown">
+    <button class="dropbtn">My Account
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="login.php">Login</a>
+      <a href="register.php">Register</a>
+    </div>
+      
+  </div>
+  <div style="float: right;">
+  <a href="#"><?php echo "Welcome  ".$fetch['firstname']; ?></a>
+  <a href="logout.php">Logout</a>
+  </div>
+</div>
+  </tr>
+  </tbody>
+  </table>
+</div>
+ <?php
+		  $tot=0;
+		  $items=0;
+		  $sql="select * from tbl_cart where cart_sessionid='".session_id()."'";
+		  $result=mysqli_query($db_connect,$sql);
+		  if (mysqli_affected_rows($db_connect)<=0)
+		  {
+			header('location:basket-empty.php');
+		  }	
+		?>     
     
 
 <div id="tbl_container_demo_grid1" class="table-responsive">
-    <div class="basketOuter">
-        <table cellspacing="20">
-            <h3 align="center" style="color:orange;">Order Summary</h3>
-            <tr>
-                <th>Quantity</th>
-                <th>Product Name</th>
-                <th>Price in Euros</th>
-            </tr>     
-                <?php while($row=mysqli_fetch_array($result)) {
-                    $tot=$tot+$row['cart_qty']*($row['cart_price']);?>	   
-            <tr><td><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td>€<?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>
-                <?php } ?>	     
-                </td></tr>
-            <tr><td>
-                    <p class="postageTotal"><span>Subtotal:</span></td>
-                <td></td>
-                <td>€
-                    <?php echo number_format($tot,2) ?>
-                </td></tr>    
-        </table> 
-        <form name="shipform" id="shipform" action="email_notify.php" method="post"> 
-            <span id="adrchange" style="display:block"> 
-                <table width="500" border="0" cellpadding="5">
-                    <td align="center" valign="center">
-                        <a href="basket.php" class="btn-lightpurple btn-bas-checkout">
-                            <img src="images/remove.png" height="40" width="40"/></a>
-                        <br/>
-                        <a href="basket.php" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
-                    </td>
-                </table>
-                <h4>Add Delivery Address</h4>
-                <table cellpadding="0" cellspacing="0" class="createAccTbl">
-                    <tr>
-                        <td>First Name *</td>
-                        <td colspan="2"><input  type="text" class="inputFields" name="fname" value=""/></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name *</td>
-                        <td colspan="2"><input  type="text" class="inputFields" name="lname"  value=""/></td>
-                    </tr>
-                    <tr>
-                        <td>Address1 *</td>
-                        <td colspan="2"><input  type="text" class="inputFields" name="adr1"  value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>City *</td>
-                        <td colspan="2"><input  type="text" class="inputFields"  name="city"  value=""/></td>
-                    </tr>
-                    <tr>
-                        <td>State *</td>
-                        <td colspan="2"><input  type="text" class="inputFields"  name="county"  value=""/></td>
-                    </tr>
-                    <tr>
-                        <td>Country *</td>
-                        <td colspan="2">
-                            <select name="country" id="country">
+   
+   <div class="basketOuter">
+   <table cellspacing="20">
+   <h3 align="center" style="color:orange;">Order Summary</h3>
+   <tr>
+   <th>Quantity</th>
+    <th>Product Name</th>
+    <th>Price in Euros</th>
+  </tr>     
+        <?php   
+           while($row=mysqli_fetch_array($result))
+		   {
+		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
+	   ?>	   
+  <tr><td><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td>€<?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>
+       <?php
+	   		}
+		     
+		?>	     
+           </td></tr>
+<tr><td>
+            <p class="postageTotal"><span>Subtotal:</span></td>
+    <td></td>
+    <td>€
+        
+   <?php echo number_format($tot,2) ?>
+        </td></tr>    
+           </table> 
+            
+             
+       <form name="shipform" id="shipform" action="email_notify.php" method="post"> 
+                
+              <span id="adrchange" style="display:block"> 
+                  
+                  <table width="500" border="0" cellpadding="5">
+                  
+                  <td align="center" valign="center">
+                      <a href="basket.php" class="btn-lightpurple btn-bas-checkout">
+                          <img src="images/remove.png" height="40" width="40"/></a>
+<br/>
+<a href="basket.php" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
+</td>
+
+</tr>
+
+</table>
+      
+        <h4>Add Delivery Address</h4>
+                    <table cellpadding="0" cellspacing="0" class="createAccTbl">
+                    	
+                        <tr>
+                        	<td>First Name *</td>
+                            <td colspan="2"><input  type="text" class="inputFields" name="fname" value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>Last Name *</td>
+                            <td colspan="2"><input  type="text" class="inputFields" name="lname"  value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>Address1 *</td>
+                            <td colspan="2"><input  type="text" class="inputFields" name="adr1"  value="" /></td>
+                        </tr>
+                        
+                        <tr>
+                        	<td>City *</td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="city"  value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>State *</td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="county"  value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>Country *</td>
+                            <td colspan="2">
+                              <select name="country" id="country"> 
+                              
                                 <option value="United States">United States</option> 
                                 <option value="United Kingdom">United Kingdom</option> 
                                 <option value="Afghanistan">Afghanistan</option> 
@@ -365,23 +389,35 @@ if (mysqli_affected_rows($db_connect)<=0)
                                 <option value="Zambia">Zambia</option> 
                                 <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone *</td>
-                        <td colspan="2"><input  type="text" class="inputFields"  name="phone"  value=""/></td>
-                    </tr>
-                    <tr>
-                        <td>Email *</td>
-                        <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value=""/></td>
-                    </tr>
-                </table>
-            </span>
-            <input type="submit" name="placeorder" value="Place Order">
-        </form>
-    </div>
+
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                        	<td>Phone *</td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="phone"  value=""/></td>
+                        </tr>
+                         <tr>
+                        	<td>Email *</td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value=""/></td>
+                        </tr>
+                        
+                    </table>
+                   
+             
+      </span>   
+                
+              
+                <input type="submit" name="placeorder" value="Place Order">
+            
+            </p>
+           
+       </form> 	
+        
+        </div>
+</div>    
+	<?php include_once("template_footer.php"); ?>
 </div>
-    <?php include_once("template_footer.php"); ?>
-    </body>
-    </html>
+</body>
+</html>
 
