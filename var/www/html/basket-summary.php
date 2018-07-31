@@ -1,25 +1,25 @@
 <?php
-  ob_start();
-  session_start();
- error_reporting(E_ALL);
- include_once ("storescripts/connect_to_mysql.php");
+ob_start();
+session_start();
+error_reporting(E_ALL);
+include_once ("storescripts/connect_to_mysql.php");
 ini_set('display_errors', '0');
-if(!isset($_SESSION['login_id']))
-{
+if(!isset($_SESSION['login_id'])) {
     header("Location:login.php");
 }
-$user_id      = $_SESSION['login_id']; 
-$sql_admin="select * from user where id='$user_id'";
-$sql_admin_query=mysqli_query($db_connect, $sql_admin);
-$fetch=  mysqli_fetch_assoc($sql_admin_query);
-$_SESSION['uid'] = $user_id;
-  if (strlen($_SESSION['uid'])<=0)
-  {
- 	 header("location:login.php?action=checkout");
- 	 exit;
-  } 	
-	
-	
+    $user_id      = $_SESSION['login_id']; 
+    $sql_admin="select * from user where id='$user_id'";
+    $sql_admin_query=mysqli_query($db_connect, $sql_admin);
+    $fetch=  mysqli_fetch_assoc($sql_admin_query);
+    $_SESSION['uid'] = $user_id;
+    if (strlen($_SESSION['uid'])<=0)
+        {
+ 	header("location:login.php?action=checkout");
+ 	exit;
+    } 	
+if (isset($_POST['submit']))
+{	
+}		
 ?>
 <!doctype html>
 <html>
@@ -27,6 +27,7 @@ $_SESSION['uid'] = $user_id;
 <meta charset="UTF-8">
 <title>Product</title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+
 </head>
 
 <body>
@@ -58,11 +59,6 @@ $_SESSION['uid'] = $user_id;
   </table>
 </div>
  <?php
-	   
-  	
-
- 
-	  
 		  $tot=0;
 		  $items=0;
 		  $sql="select * from tbl_cart where cart_sessionid='".session_id()."'";
@@ -73,69 +69,84 @@ $_SESSION['uid'] = $user_id;
 		  }	
 		?>     
     
- <form name="shipform" id="shipform" action="paypal.php" method="post">
-             
+
 <div id="tbl_container_demo_grid1" class="table-responsive">
+   
    <div class="basketOuter">
-           
-           <h4>Order Summary</h4>
-        <?   
+   <table cellspacing="20">
+   <h3 align="center" style="color:orange;">Order Summary</h3>
+   <tr>
+   <th>Quantity</th>
+    <th>Product Name</th>
+    <th>Price in Euros</th>
+  </tr>     
+        <?php   
            while($row=mysqli_fetch_array($result))
 		   {
-               
-             
-               
-               
 		      $tot=$tot+$row['cart_qty']*($row['cart_price']);
-                      
-               $product_name        = $row['cart_pname'];
-               $product_qty         = $row['cart_qty'];
-               $product_price       = $row['cart_price'];
-               $total               = $tot;
 	   ?>	   
-            <p><?=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (<img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
-       <?
+  <tr><td><?php echo $row['cart_qty'] ?> </td><td> <?php echo $row['cart_pname']?></td><td>€<?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>
+       <?php
 	   		}
-		
-                        
-                        
-                        
+		     
 		?>	     
-           
-<p><a href="basket.php">Edit your Order </a></p>
-            <p class="postageTotal"><span>Subtotal:</span><img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($tot,2) ?></p>
-               <p class="orderTotal"><span>Total:</span> <img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack1" /> <?php echo number_format(($tot+$vat+$ship),2) ?>
-               
+           </td></tr>
+<tr><td>
+            <p class="postageTotal"><span>Subtotal:</span></td>
+    <td></td>
+    <td>€
+        
+   <?php echo number_format($tot,2) ?>
+        </td></tr>    
+           </table> 
+            
+             
+       <form name="shipform" id="shipform" action="email_notify.php" method="post"> 
                 
-                
-                
-              <span id="adrchange" style="display:block">     
+              <span id="adrchange" style="display:block"> 
+                  
+                  <table width="500" border="0" cellpadding="5">
+                  
+                  <td align="center" valign="center">
+                      <a href="basket.php" class="btn-lightpurple btn-bas-checkout">
+                          <img src="images/remove.png" height="40" width="40"/></a>
+<br/>
+<a href="basket.php" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
+</td>
+
+</tr>
+
+</table>
       
         <h4>Add Delivery Address</h4>
                     <table cellpadding="0" cellspacing="0" class="createAccTbl">
                     	
                         <tr>
-                        	<td> Name *</td>
-                            <td colspan="2"><input  type="text" class="inputFields" name="name" value=""/></td>
+                        	<td>First Name *</td>
+                            <td colspan="2"><input  type="text" class="inputFields" name="fname" value=""/></td>
                         </tr>
-                        
                         <tr>
-                        	<td>Address *</td>
+                        	<td>Last Name *</td>
+                            <td colspan="2"><input  type="text" class="inputFields" name="lname"  value=""/></td>
+                        </tr>
+                        <tr>
+                        	<td>Address1 *</td>
                             <td colspan="2"><input  type="text" class="inputFields" name="adr1"  value="" /></td>
                         </tr>
-                       
+                        
                         <tr>
                         	<td>City *</td>
                             <td colspan="2"><input  type="text" class="inputFields"  name="city"  value=""/></td>
                         </tr>
                         <tr>
                         	<td>State *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="state"  value=""/></td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="county"  value=""/></td>
                         </tr>
                         <tr>
                         	<td>Country *</td>
                             <td colspan="2">
-                              <select name="country" id="country">                              
+                              <select name="country" id="country"> 
+                              
                                 <option value="United States">United States</option> 
                                 <option value="United Kingdom">United Kingdom</option> 
                                 <option value="Afghanistan">Afghanistan</option> 
@@ -381,37 +392,27 @@ $_SESSION['uid'] = $user_id;
 
                             </td>
                         </tr>
-                        <tr>
-                        	<td>Post Code *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="pcode"  value="<?=$pcode?>"/></td>
-                        </tr>
+                        
                         <tr>
                         	<td>Phone *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="phone"  value="<?=$phone?>"/></td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="phone"  value=""/></td>
                         </tr>
                          <tr>
                         	<td>Email *</td>
-                            <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value="<?=$email?>"/></td>
+                            <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value=""/></td>
                         </tr>
                         
-                    </table>      
-        
-        
-        <input  type="text" class="inputFields"  name="product_name"  value="<?php echo $product_name; ?>"/>
-        <input  type="text" class="inputFields"  name="product_price"  value="<?php echo $product_price;?>"/>
-        <input  type="text" class="inputFields"  name="product_qty"  value="<?php echo $product_qty;?>"/>
-        <input  type="text" class="inputFields"  name="total"  value="<?php echo $total;?>"/>
-        
-        
-                      <input type="submit" name="placeorder" value="Place Order">
-              </form> 	
+                    </table>
+                   
+             
       </span>   
                 
-               
+              
+                <input type="submit" name="placeorder" value="Place Order">
             
             </p>
            
-      
+       </form> 	
         
         </div>
 </div>    
@@ -419,3 +420,4 @@ $_SESSION['uid'] = $user_id;
 </div>
 </body>
 </html>
+
