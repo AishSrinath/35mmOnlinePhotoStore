@@ -93,7 +93,7 @@ $_SESSION['uid'] = $user_id;
                $product_price       = $row['cart_price'];
                $total               = $tot;
 	   ?>	   
-            <p><?=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (€<?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
+            <p><?=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (<img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
        <?
 	   		}
 		
@@ -103,8 +103,8 @@ $_SESSION['uid'] = $user_id;
 		?>	     
            
 <p><a href="basket.php">Edit your Order </a></p>
-            <p class="postageTotal"><span>Subtotal:</span>€<?php echo number_format($tot,2) ?></p>
-               <p class="orderTotal"><span>Total:</span>€<?php echo number_format(($tot+$vat+$ship),2) ?>
+            <p class="postageTotal"><span>Subtotal:</span><img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack" /><?php echo number_format($tot,2) ?></p>
+               <p class="orderTotal"><span>Total:</span> <img src="./images/rsico_black.png" border="0" style="border:none;"  class="rsicoblack1" /> <?php echo number_format(($tot+$vat+$ship),2) ?>
                
                 
                 
