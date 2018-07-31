@@ -1,4 +1,4 @@
-<? 
+<?php
  ob_start();
  include_once('storescripts/connect_to_mysql.php');
  if (isset($_GET['id']))

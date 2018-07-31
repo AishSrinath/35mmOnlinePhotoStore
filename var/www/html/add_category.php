@@ -8,7 +8,6 @@ if (!(isset($login) && $login == true)) {
       
         header("Location: login.php");
     }
-
     if (isset($_SESSION['EXPIRES']) && strlen($_SESSION['EXPIRES']) > 0 && $_SESSION['EXPIRES'] < time()) {
         $_SESSION['login_username'] = "";
         $_SESSION['login_id'] = "";
