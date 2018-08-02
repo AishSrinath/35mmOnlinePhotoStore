@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 include_once ("storescripts/connect_to_mysql.php");
-ini_set('display_errors', '0');
+ini_set('display_errors', '1');
 $user_id      = $_SESSION['login_id']; 
 $_SESSION['uid'] = $user_id;
   if (strlen($_SESSION['uid'])<=0)
