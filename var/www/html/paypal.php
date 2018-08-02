@@ -14,7 +14,7 @@ $_SESSION['uid'] = $user_id;
   {
   
         $order_no = "ORDN".mt_rand(100, 999);      
-       echo $product_name        = $_POST['product_name'];
+        $product_name        = $_POST['product_name'];
         $product_qty         = $_POST['product_qty'];
         $product_price       = $_POST['product_price'];
         $total              = $_POST['total'];      
@@ -36,14 +36,8 @@ $_SESSION['uid'] = $user_id;
 
      
 }
-?>
-<?php echo $total;
-//exit;
 
 ?>
-
-
-
 <!doctype html>
 <html>
 <head>
@@ -54,14 +48,14 @@ $_SESSION['uid'] = $user_id;
 <body>    
 <form class="form-horizontal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
 <input type='hidden' name='business' value='aiswarya.g2008@gmail.com'>
-<input type='text' name='item_name' value='<?php echo $product_name;?>'>
-<input type='text' name='item_number' value="<?php echo mt_rand(100, 999);?>">
-<input type='text' name='amount' value='<?php echo $total;?>'>
-<input type='text' name='currency_code' value='EUR'>
-<input type='text' name='notify_url' value='http://35.234.111.99/notify.php'>
-<input type='text' name='return' value='http://35.234.111.99/success.php'>
-<input type="text" name="cmd" value="_xclick">
-<input type="text" name="order" value="<?php echo $order_no;?>">
+<input type='hidden' name='item_name' value='<?php echo $product_name;?>'>
+<input type='hidden' name='item_number' value="<?php echo $order_no;?>">
+<input type='hidden' name='amount' value='<?php echo $total;?>'>
+<input type='hidden' name='currency_code' value='USD'>
+<input type='hidden' name='notify_url' value=''>
+<input type='hidden' name='return' value=''>
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="order" value="<?php echo $order_no;?>">
 <br>
 <div class="form-group">
 <div class="col-sm-2">
