@@ -50,8 +50,8 @@ $_SESSION['uid'] = $user_id;
 <input type='hidden' name='item_number' value="<?php echo $order_no;?>">
 <input type='hidden' name='amount' value='<?php echo $total;?>'>
 <input type='hidden' name='currency_code' value='USD'>
-<input type='hidden' name='notify_url' value=''>
-<input type='hidden' name='return' value=''>
+<input type='hidden' name='notify_url' value='http://35.234.111.99/notify.php'>
+<input type='hidden' name='return' value='http://35.234.111.99/success.php'>
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="order" value="<?php echo $order_no;?>">
 <br>
