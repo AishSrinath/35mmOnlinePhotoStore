@@ -27,12 +27,9 @@ $_SESSION['uid'] = $user_id;
 	$country=str_replace("'", "''", $_POST['country']);
 	$email=str_replace("'", "''", $_POST['email']);
         
-
-           
-    $sql = "INSERT INTO  tbl_order(`order_num`,`product_name`,`product_price`,`product_qty`,`total`,`payment_status`,`ship_name`,`ship_address`,`ship_city`,`ship_state`,`ship_country`,`ship_postcode`,`ship_phone`,`ship_email`)
-          values('$order_no','$product_name','$product_price','$product_qty','$total','0','$name','$adr1','$city','$state','$county','$pcode','$phone','$email')";    
-       
-	mysqli_query($db_connect,$sql) or die(mysql_error());
+  $sql = "INSERT INTO  tbl_order(`order_num`,`product_name`,`product_price`,`product_qty`,`total`,`payment_status`,`ship_name`,`ship_address`,`ship_city`,`ship_state`,`ship_country`,`ship_postcode`,`ship_phone`,`ship_email`)
+          values('$order_no','$product_name','$product_price','$product_qty','$total','0','$name','$adr1','$city','$state','$country','$pcode','$phone','$email')";
+        mysqli_query($db_connect,$sql) or die(mysql_error());
 
      
 }
