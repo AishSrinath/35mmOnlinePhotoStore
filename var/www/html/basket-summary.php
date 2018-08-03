@@ -82,19 +82,19 @@ $total               = $tot;
         <table cellpadding="0" cellspacing="0" class="createAccTbl">
             <tr>
                 <td> Name *</td>
-                <td colspan="2"><input  type="text" class="inputFields" name="name" value=""/></td>
+                <td colspan="2"><input  type="text" class="inputFields" name="name" value="" required="required"/></td>
             </tr>
             <tr>
                 <td>Address *</td>
-                <td colspan="2"><input  type="text" class="inputFields" name="adr1"  value="" /></td>
+                <td colspan="2"><input  type="text" class="inputFields" name="adr1"  value="" required="required"/></td>
             </tr>
             <tr>
                 <td>City *</td>
-                <td colspan="2"><input  type="text" class="inputFields"  name="city"  value=""/></td>
+                <td colspan="2"><input  type="text" class="inputFields"  name="city"  value="" required="required"/></td>
             </tr>
             <tr>
                 <td>State *</td>
-                <td colspan="2"><input  type="text" class="inputFields"  name="state"  value=""/></td>
+                <td colspan="2"><input  type="text" class="inputFields"  name="state"  value="" required="required"/></td>
             </tr>
             <tr>
                 <td>Country *</td>
@@ -346,15 +346,15 @@ $total               = $tot;
             </tr>
             <tr>
                 <td>Post Code *</td>
-                <td colspan="2"><input  type="text" class="inputFields"  name="pcode"  value="<?=$pcode?>"/></td>
+                <td colspan="2"><input  type="text" class="inputFields"  name="pcode"  value="<?=$pcode?>" required="required"/></td>
             </tr>
             <tr>
                 <td>Phone *</td>
-                <td colspan="2"><input  type="text" class="inputFields"  name="phone"  value="<?=$phone?>"/></td>
+                <td colspan="2"><input  type="number" class="inputFields"  name="phone"  value="<?=$phone?>" required="required"/></td>
             </tr>
             <tr>
                 <td>Email *</td>
-                <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value="<?=$email?>"/></td>
+                <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value="<?=$email?>" required="required"/></td>
             </tr>
         </table>
         <input  type="text" class="inputFields"  name="product_name"  value="<?php echo $product_name; ?>"/>
