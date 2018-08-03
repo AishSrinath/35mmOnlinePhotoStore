@@ -40,14 +40,14 @@ if(mysqli_affected_rows($db_connect))
                  $ship_phone        = $row1['ship_phone'];
                  $ship_email        = $row1['ship_email'];                 
                  // for sending mail//                 
-                 $subject = "Purchase Deatils";
+                 $subject = "Purchase Details";
                  $body =$message = "
 <html>
 <head>
 <title>Payment Information </title>
 </head>
 <body>
-<p>Your  Payment was successfull oder details are shown below</p>
+<p>Your  Payment was successfull .Please find the below order details :)</p>
 <table>
 <tr>
 <th>Product Name</th>
@@ -58,7 +58,7 @@ if(mysqli_affected_rows($db_connect))
 <td>".$product_price."</td>
 </tr>
 <tr>
-<td>Product Quantity </td>
+<td>Number of Photographs purchased </td>
 <td>".$product_qty."</td>
 </tr>
 <tr>
