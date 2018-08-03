@@ -160,8 +160,7 @@ if (isset($_POST['reg_product']))
 $category      =  mysqli_real_escape_string($db_connect,$_REQUEST['category']);
  $product_name =  mysqli_real_escape_string($db_connect,$_REQUEST['product_name']);
  $details      =  mysqli_real_escape_string($db_connect,$_REQUEST['details']);
- $price        =  mysqli_real_escape_string($db_connect,$_REQUEST['price']);
-$price_small   =  mysqli_real_escape_string($db_connect,$_REQUEST['price_small']);  
+ $price        =  mysqli_real_escape_string($db_connect,$_REQUEST['price']); 
  $user_id      = $_SESSION['login_id']; 
  //
  $sqlcat1 = "SELECT * FROM category WHERE id='$category'";
@@ -218,7 +217,7 @@ if ($uploadOk1 == 0) {
     }
 }  
 $image_large = $target_file;
-$sql= "insert into products(category,product_name,details,price,user_id,status,date_added,price_small) values('$category','$product_name','$details','$price','$user_id','1',now(),'$price_small')";
+echo $sql= "insert into products(category,product_name,details,price,user_id,status,date_added) values('$category','$product_name','$details','$price','$user_id','1',now())";
 mysqli_query($db_connect,$sql) or die(mysqli_error($db_connect));
 //$sql= "insert into products(category,product_name,details,price,user_id,status,date_added) values('$category','$product_name','$details','$price','$user_id','1',now())";
 //mysqli_query($db_connect,$sql) or mysqli_error($db_connect);
@@ -238,7 +237,7 @@ $msg= $_REQUEST['msg'];
 <tr><td>
       <div class="input-group">
   	  <label>Select Category</label>
-          <select name="category" required="required">
+          <select name="category">
               <option value="">Select Category</option> 
               <?php
 $sqlcat = "SELECT * FROM category ";
@@ -257,13 +256,13 @@ $sqlcat = "SELECT * FROM category ";
       <tr><td>
         <div class="input-group">
   	  <label>Product Name</label>
-          <input type="text" name="product_name" value="" required="required">
+          <input type="text" name="product_name" value="" >
   	</div> 
     </td></tr>
     <tr><td>
         <div class="input-group">
   	  <label>Description</label>
-          <textarea name="details" rows="4" cols="50" required="required">
+          <textarea name="details" rows="4" cols="50">
 </textarea> 
 
   	</div> </td></tr>
@@ -271,18 +270,12 @@ $sqlcat = "SELECT * FROM category ";
   	
       <div class="input-group">
   	  <label> Upload from PC</label>
-          <input type="file" name="image_large" id="image"  required="required"/>
+          <input type="file" name="image_large" id="image" />
   	</div></td></tr>
       <tr><td>
       <div class="input-group">
-  	  <label>Price in EUR For High Resolution</label>
-          <input type="text" name="price" value="" required="required" type="number" min="1" step="any">
-  	</div></td></tr>
-      
-      <tr><td>
-      <div class="input-group">
-  	  <label>Price in EUR For Low Resolution</label>
-          <input type="text" name="price_small" value="" required="required" type="number" min="1" step="any">
+  	  <label>Price in EUR</label>
+          <input type="text" name="price" value="" required="">
   	</div></td></tr>
   	</table>
 
