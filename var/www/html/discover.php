@@ -134,7 +134,7 @@ $sqlcat = "SELECT * FROM category ";
         <input type="hidden" name="pname" value="<?php echo $row['product_name'] ?>" />
         <input type="hidden" name="pid" value="<?php echo $row['id'] ?>" />
         <input type="hidden" name="price_large" value="<?php echo $row['price'] ?>" />
-        <input type="hidden" name="price_small" value="<?php echo $row['price'] ?>" />
+        <input type="hidden" name="price_small" value="<?php echo $row['price_small'] ?>" />
         <input type="hidden" name="category" value="<?php echo $row['category'] ?>" />
         <input type="hidden" name="pqty" value="1" />
         
