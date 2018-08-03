@@ -276,13 +276,13 @@ $sqlcat = "SELECT * FROM category ";
       <tr><td>
       <div class="input-group">
   	  <label>Price in EUR For High Resolution</label>
-          <input type="text" name="price" value="" required="required" type="number" min="1" step="any">
+          <input type="number" name="price" value="" required="required" type="number" min="1" step="any">
   	</div></td></tr>
       
       <tr><td>
       <div class="input-group">
   	  <label>Price in EUR For Low Resolution</label>
-          <input type="text" name="price_small" value="" required="required" type="number" min="1" step="any">
+          <input type="number" name="price_small" value="" required="required" type="number" min="1" step="any">
   	</div></td></tr>
   	</table>
 
