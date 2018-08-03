@@ -93,7 +93,7 @@ $total               = $tot;
                 <td colspan="2"><input  type="text" class="inputFields"  name="city"  value="" required="required"/></td>
             </tr>
             <tr>
-                <td>State *</td>
+                <td>County *</td>
                 <td colspan="2"><input  type="text" class="inputFields"  name="state"  value="" required="required"/></td>
             </tr>
             <tr>
