@@ -357,11 +357,23 @@ $total               = $tot;
                 <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value="<?=$email?>" required="required"/></td>
             </tr>
         </table>
-        <input  type="text" class="inputFields"  name="product_name"  value="<?php echo $product_name; ?>"/>
+        <!--<input  type="text" class="inputFields"  name="product_name"  value="<?php echo $product_name; ?>"/>
         <input  type="text" class="inputFields"  name="product_price"  value="<?php echo $product_price;?>"/>
         <input  type="text" class="inputFields"  name="product_qty"  value="<?php echo $product_qty;?>"/>
-        <input  type="text" class="inputFields"  name="total"  value="<?php echo $total;?>"/>
+        <input  type="text" class="inputFields"  name="total"  value="<?php echo $total;?>"/>-->
         <input type="submit" name="placeorder" value="Place Order">
+        <table width="500" border="0" cellpadding="5">
+                   
+                   <td align="center" valign="center">
+                       <a href="basket.php" class="btn-lightpurple btn-bas-checkout">
+                           <img src="images/remove.png" height="40" width="40"/></a>
+ <br/>
+ <a href="basket.php" class="btn-lightpurple btn-bas-checkout">Update Cart</a>
+ </td>
+
+ </tr>
+
+ </table>
         </form>
 </span>
 </p>
