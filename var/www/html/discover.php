@@ -233,4 +233,5 @@ function openCat(evt, catName) {
     <?php include_once("template_footer.php"); ?>
 </div>
 </body>
+<body oncontextmenu="return false;">
 </html>
