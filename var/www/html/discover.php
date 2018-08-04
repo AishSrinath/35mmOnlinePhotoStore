@@ -94,14 +94,7 @@ $sqlcat = "SELECT * FROM category ";
     <button class="tablinks" onclick="openCat(event, '<?php echo $cat_name;?>')"><?php echo $cat_name;?></button>
     <?php } }?>
     </div>
-    <script type="text/javascript">
-document.oncontextmenu=function(e)
-{
-e=e || window.event;
-if (/^ing$/1.test((e.target || e.srcElement).nodeName)) return false;
-};
-</script>
-                         <?php
+                 <?php
 $sqlcat = "SELECT * FROM category ";
  $res= mysqli_query($db_connect,$sqlcat) or die("error");
           if(mysqli_affected_rows($db_connect))
@@ -117,7 +110,14 @@ $sqlcat = "SELECT * FROM category ";
     <div id="<?php echo $cat_name;?>" class="tabcontent">
         <form name="productform" method="post" onsub	mit="" action="addcart.php"> 
     <table>
-        
+   <script type="text/javascript">
+document.oncontextmenu=function(e)
+{
+e=e || window.event;
+if (/^ing$/1.test((e.target || e.srcElement).nodeName)) return false;
+};
+</script>
+                 
     <?php
     $i=0;
     $product = "SELECT * FROM products where category='$cat_id'";
