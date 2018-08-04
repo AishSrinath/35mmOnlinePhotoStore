@@ -149,16 +149,7 @@ $sqlcat = "SELECT * FROM category ";
     <button class="tablinks" onclick="openCat(event, '<?php echo $cat_name;?>')"><?php echo $cat_name;?></button>
     <?php } }?>
     </div>
-    <div class="container">
-  <div class="overlay">
-    <a href="#" class="icon" title="User Profile">
-      <i class="fa fa-user"></i>
-    </a>
-    <div class="icon">
-    <div class="text">Not a Buyer</div>
-  </div>
-  </div>
-</div>
+    
 
                  <?php
 $sqlcat = "SELECT * FROM category ";
@@ -172,7 +163,16 @@ $sqlcat = "SELECT * FROM category ";
               
               
   ?> 
-    
+  <div class="container">
+  <div class="overlay">
+    <a href="#" class="icon" title="User Profile">
+      <i class="fa fa-user"></i>
+    </a>
+    <div class="icon">
+    <div class="text">Not a Buyer</div>
+  </div>
+  </div>
+</div>  
     <div id="<?php echo $cat_name;?>" class="tabcontent">
         <form name="productform" method="post" onsub	mit="" action="addcart.php"> 
     <table>
