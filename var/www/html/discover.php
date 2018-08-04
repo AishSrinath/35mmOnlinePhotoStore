@@ -94,6 +94,13 @@ $sqlcat = "SELECT * FROM category ";
     <button class="tablinks" onclick="openCat(event, '<?php echo $cat_name;?>')"><?php echo $cat_name;?></button>
     <?php } }?>
     </div>
+    <script type="text/javascript">
+document.oncontextmenu=function(e)
+{
+e=e || window.event;
+if (/^ing$/1.test((e.target || e.srcElement).nodeName)) return false;
+};
+</script>
                          <?php
 $sqlcat = "SELECT * FROM category ";
  $res= mysqli_query($db_connect,$sqlcat) or die("error");
