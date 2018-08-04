@@ -150,7 +150,6 @@ $sqlcat = "SELECT * FROM category ";
     <?php } }?>
     </div>
     <div class="container">
-  <img src="img_avatar.png" alt="Avatar" class="image">
   <div class="overlay">
     <a href="#" class="icon" title="User Profile">
       <i class="fa fa-user"></i>
