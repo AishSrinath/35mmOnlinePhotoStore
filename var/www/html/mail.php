@@ -10,7 +10,7 @@ function sendmail ($cxname,$cxemail,$subject,$body) {
     $mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
     $mail->SMTPAuth = true;
     $mail->Username = '35mm2018@gmail.com';   //username
-    $mail->Password = 'bVQke"(s-$CA4"*x';   //password
+    $mail->Password = 'nXLif!{t-$AR4"*q';   //password
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;                    //SMTP port
     $mail->setFrom('noreply@35mm.com', '35mm.com');
