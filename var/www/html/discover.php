@@ -55,59 +55,6 @@ require 'functions.php';
     height: auto;
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-}
-.text {
-  
-  color: black;
-  font-size: 20px;
-  padding: 16px 32px;
-}
-.image {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .3s ease;
-  
-}
-.container:hover .image {
-  opacity: 0.8;
-}
-.container:hover .overlay {
-  opacity: 1;
-}
-
-.icon {
-  color: white;
-  font-size: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.fa-user:hover {
- color: #eee; 
-}
-
 </style>
 </head>
 <body>
@@ -163,16 +110,7 @@ $sqlcat = "SELECT * FROM category ";
               
               
   ?> 
-  <div class="container">
-  <div class="overlay">
-    <a href="#" class="icon" title="User Profile">
-      <i class="fa fa-user"></i>
-    </a>
-    <div class="icon">
-    <div class="text">Not a Buyer</div>
-  </div>
-  </div>
-</div>  
+ 
     <div id="<?php echo $cat_name;?>" class="tabcontent">
         <form name="productform" method="post" onsub	mit="" action="addcart.php"> 
     <table>
