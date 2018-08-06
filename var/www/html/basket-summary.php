@@ -357,7 +357,11 @@ $total               = $tot;
                 <td colspan="2"><input  type="text" class="inputFields"  name="email" id="email"  value="<?=$email?>" required="required"/></td>
             </tr>
         </table>
-               
+        <input  type="hidden" class="inputFields"  name="product_name"  value="<?php echo $product_name; ?>"/>
+        <input  type="hidden" class="inputFields"  name="product_price"  value="<?php echo $product_price;?>"/>
+        <input  type="hidden" class="inputFields"  name="product_qty"  value="<?php echo $product_qty;?>"/>
+        <input  type="hidden" class="inputFields"  name="total"  value="<?php echo $total;?>"/>
+        
         <input type="submit" name="placeorder" value="Place Order">
         <table width="500" border="0" cellpadding="5">
                    
