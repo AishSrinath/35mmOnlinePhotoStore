@@ -100,9 +100,9 @@ if(mysqli_affected_rows($db_connect))
 }
 //For send sms
 
-	$cxname="buyer";
+//	$cxname="buyer";
 	$cxemail="00353".$ship_phone."@echoemail.net";
-	sendmail ($ship_name,$email,$order_num,"Your order no:'$order_num' is processed");
+	sendmail ($ship_name,$cxemail,$order_num,"Your order no:'$order_num' is processed");
 
 //end 
 
