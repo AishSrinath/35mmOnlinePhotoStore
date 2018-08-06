@@ -112,7 +112,7 @@ $sqlcat = "SELECT * FROM category ";
   ?> 
  
     <div id="<?php echo $cat_name;?>" class="tabcontent">
-       
+        <form name="productform" method="post" onsub	mit="" action="addcart.php"> 
     <table>
    
                  
@@ -121,9 +121,6 @@ $sqlcat = "SELECT * FROM category ";
     $product = "SELECT * FROM products where category='$cat_id'";
     $result_product = mysqli_query($db_connect,$product);
     while($row = mysqli_fetch_assoc($result_product)) {
-        ?>
-                <form name="productform" method="post" onsub	mit="" action="addcart.php"> 
-        <?php
         if($i%3 == 0) {
             echo "<tr>";
         }
@@ -138,20 +135,20 @@ $sqlcat = "SELECT * FROM category ";
          $row_lowresolution=$row['price'];
          
     ?>
-
+        
         <input type="hidden" name="pname" value="<?php echo $row['product_name'] ?>" />
         <input type="hidden" name="pid" value="<?php echo $row['id'] ?>" />
         <input type="hidden" name="price_large" value="<?php echo $row['price'] ?>" />
         <input type="hidden" name="price_small" value="<?php echo $row['price_small'] ?>" />
         <input type="hidden" name="category" value="<?php echo $row['category'] ?>" />
         <input type="hidden" name="pqty" value="1" />
-         </form>   
+        
    <?php }
     ?>
         
         
     </table>
-             
+      </form>           
 
     </div>
         <?php } }?>
