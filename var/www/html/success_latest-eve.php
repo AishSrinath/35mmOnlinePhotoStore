@@ -50,13 +50,19 @@ if(mysqli_affected_rows($db_connect))
 <p>Your  Payment was successfull oder details are shown below</p>
 <table>
 <tr>
-<td>Thank you ".$ship_name." for shopping with 35mm ! You will recieve your order in 2-6 working days. </td>
+<th>Product Name</th>
+<th>".$product_name."</th>
 </tr>
 <tr>
-<td>-----------Your purchase details---------------- </td>
+<td>Product Price</td>
+<td>".$product_price."</td>
 </tr>
 <tr>
-<td>Total Purchase amount </td>
+<td>Product Quantity </td>
+<td>".$product_qty."</td>
+</tr>
+<tr>
+<td>Total </td>
 <td>".$total."</td>
 </tr>
 <tr>
