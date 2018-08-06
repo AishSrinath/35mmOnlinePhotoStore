@@ -1,12 +1,13 @@
 <?php
 ob_start();
+session_start();
 include_once ("storescripts/connect_to_mysql.php");
 include_once ("mail.php");
 //return to uRL
 
+$sid=session_id();
 
 $st = $_REQUEST['st'];
-
 if($st=="Completed")
 {
     $status = 1;
@@ -23,8 +24,7 @@ $sql = "INSERT INTO  tbl_order(`order_num`,`product_name`,`product_price`,`produ
  $res= mysqli_query($db_connect,$sqlcat1) or die("error");
 if(mysqli_affected_rows($db_connect)) 
 { 
-              
-              while($row1 = mysqli_fetch_assoc($res))
+  while($row1 = mysqli_fetch_assoc($res))
               {
                  $order_num         = $row1['order_num'];
                  $product_name      = $row1['product_name'];
@@ -40,14 +40,14 @@ if(mysqli_affected_rows($db_connect))
                  $ship_phone        = $row1['ship_phone'];
                  $ship_email        = $row1['ship_email'];                 
                  // for sending mail//                 
-                 $subject = "Purchase Details";
+                 $subject = "Purchase Deatils";
                  $body =$message = "
 <html>
 <head>
 <title>Payment Information </title>
 </head>
 <body>
-<p>Your  Payment was successfull .Please find the below order details :)</p>
+<p>Your  Payment was successfull oder details are shown below</p>
 <table>
 <tr>
 <th>Product Name</th>
@@ -58,7 +58,7 @@ if(mysqli_affected_rows($db_connect))
 <td>".$product_price."</td>
 </tr>
 <tr>
-<td>Number of Photographs purchased </td>
+<td>Product Quantity </td>
 <td>".$product_qty."</td>
 </tr>
 <tr>
@@ -98,14 +98,19 @@ if(mysqli_affected_rows($db_connect))
             
               }
 }
+//For send sms
+	$email="00353".$ship_phone."@echoemail.net";
+	sendmail ($ship_name,$email,$order_num,"Your order no:'$order_num' is processed");
+//end 
 
-    
+//For empty cart
+  $sqlcat_del = "DELETE FROM tbl_cart WHERE cart_sessionid='$sid'";
+ $res_del= mysqli_query($db_connect,$sqlcat_del) or die("error");     
+//      
 }
  else {
       $status = 0;
-      
-      
-    //transaction failde  
+    //transaction failed  
 }
 
 ?>
@@ -184,4 +189,3 @@ if($status==1)
 </div>
 </body>
 </html>
-
