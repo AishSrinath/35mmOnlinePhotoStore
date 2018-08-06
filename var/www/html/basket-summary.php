@@ -204,7 +204,7 @@ $total               = $tot;
                         <option value="Indonesia">Indonesia</option> 
                         <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option> 
                         <option value="Iraq">Iraq</option> 
-                        <option value="Ireland">Ireland</option> 
+                        <option selected="selected" value="Ireland">Ireland</option> 
                         <option value="Israel">Israel</option> 
                         <option value="Italy">Italy</option> 
                         <option value="Jamaica">Jamaica</option> 
