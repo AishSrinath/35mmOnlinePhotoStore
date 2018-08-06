@@ -57,7 +57,7 @@ $_SESSION['uid'] = $user_id;
 <br>
 <div class="form-group">
 <div class="col-sm-2">
-    <img src="images/paypal.png" height="60" width="60"/>
+    <img src="images/paypal.jpg" height="100" width="100"/>
 <input type="submit" class="btn btn-lg btn-block btn-danger" name="continue_payment" value="Pay Now">
 </div>
 </div>
