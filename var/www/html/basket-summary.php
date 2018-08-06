@@ -349,7 +349,7 @@ $total               = $tot;
                 <td colspan="2"><input  type="text" class="inputFields"  name="pcode"  value="<?=$pcode?>" required="required"/></td>
             </tr>
             <tr>
-                <td>Phone *</td>
+                <td>Phone(+353)*</td>
                 <td colspan="2"><input  type="number" class="inputFields"  name="phone"  value="<?=$phone?>" required="required"/></td>
             </tr>
             <tr>
