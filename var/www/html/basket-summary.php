@@ -74,7 +74,7 @@ $total               = $tot;
 ?>	   
 <p><?=$row['cart_qty'] ?> x <?=$row['cart_pname']?> (€<?php echo number_format($row['cart_qty']*$row['cart_price'],2)?>)</p>
 <?php } ?>	     
-<p><a href="basket.php">Edit your Order </a></p>
+
 <p class="postageTotal"><span>Subtotal:</span>€<?php echo number_format($tot,2) ?></p>
 <p class="orderTotal"><span>Total:</span>€<?php echo number_format(($tot+$vat+$ship),2) ?>
     <span id="adrchange" style="display:block">
