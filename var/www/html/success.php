@@ -47,7 +47,7 @@ if(mysqli_affected_rows($db_connect))
 <title>Payment Information </title>
 </head>
 <body>
-<p>Your  Payment was successfull oder details are shown below</p>
+<p>Your  Payment was successfull order details are shown below</p>
 <table>
 <tr>
 <td>Thank you ".$ship_name." for shopping with 35mm ! You will recieve your order in 2-6 working days. </td>
