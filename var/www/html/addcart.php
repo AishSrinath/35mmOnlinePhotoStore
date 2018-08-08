@@ -18,10 +18,12 @@ if($image_type=='large')
 {
 $pprice=$row['price']; 
 $pimage = $row['image'];
+$pname  = $pname." High Resolution";
 }
  else {
 $pprice=$row['price_small']; 
-$pimage = $row['image_small'];  
+$pimage =  $row['image'];
+$pname  = $pname." Low Resolution";
 }
 
 /*if (strlen(trim($pimage))==0)
