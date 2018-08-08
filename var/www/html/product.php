@@ -154,7 +154,7 @@ if(mysqli_affected_rows($db_connect))
 }
             
             echo $imagefold;?></td>
-            <td><?php echo "<a href='watermark.php?img={$row['image']}' target='_blank'><img src='{$row['image']}' alt={$row['product_name']} class='responsive' width='100' height='100'/></a>";?></td>
+            <td><?php echo "<a href='watermark.php?img={$row['image']}' target='_blank'><img src='{$row['image']}' alt={$row['product_name']} class='responsive' width='50' height='50'/></a>";?></td>
             <td><?php echo $row['date_added'];?></td>
             <td>
                                                                  <!--   <a  href="delete_product.php?id=<?=$row['id']?>" onclick="return confirm('Are you sure?')" style="color: red;"> 
