@@ -256,13 +256,13 @@ $sqlcat = "SELECT * FROM category ";
   	</div></td></tr>
       <tr><td>
         <div class="input-group">
-  	  <label>Product Name</label>
+  	  <label>Product Name*</label>
           <input type="text" name="product_name" value="" required="required">
   	</div> 
     </td></tr>
     <tr><td>
         <div class="input-group">
-  	  <label>Description</label>
+  	  <label>Description*</label>
           <textarea name="details" rows="4" cols="50" required="required">
 </textarea> 
 
@@ -270,18 +270,18 @@ $sqlcat = "SELECT * FROM category ";
     <tr><td>
   	
       <div class="input-group">
-  	  <label> Upload from PC</label>
+  	  <label> Upload from PC*</label>
           <input type="file" name="image_large" id="image"  required="required"/>
   	</div></td></tr>
       <tr><td>
       <div class="input-group">
-  	  <label>Price in EUR For High Resolution</label>
+  	  <label>Price in EUR For High Resolution*</label>
           <input type="number" name="price" value="" required="required" type="number" min="1" step="any">
   	</div></td></tr>
       
       <tr><td>
       <div class="input-group">
-  	  <label>Price in EUR For Low Resolution</label>
+  	  <label>Price in EUR For Low Resolution*</label>
           <input type="number" name="price_small" value="" required="required" type="number" min="1" step="any">
   	</div></td></tr>
   	</table>
